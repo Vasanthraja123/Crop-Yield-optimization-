@@ -3079,3 +3079,613 @@ Traceback (most recent call last):
   File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
     raise TemplateNotFound(template)
 jinja2.exceptions.TemplateNotFound: 500.html
+2025-04-15 13:36:39,889 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.230.153:5000
+2025-04-15 13:36:39,897 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 13:36:47,879 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:36:47] "GET / HTTP/1.1" 200 -
+2025-04-15 13:36:47,956 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:36:47] "GET / HTTP/1.1" 200 -
+2025-04-15 13:36:48,531 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "V:\Live-in lab\app.py", line 606, in page_not_found
+    return render_template('404.html'), 404
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+2025-04-15 13:36:49,012 - __main__ - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-15 13:36:49,014 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:36:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-15 13:36:49,219 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "V:\Live-in lab\app.py", line 606, in page_not_found
+    return render_template('404.html'), 404
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1399, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "V:\Live-in lab\app.py", line 611, in internal_server_error
+    return render_template('500.html'), 500
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 500.html
+2025-04-15 13:36:49,889 - app - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "V:\Live-in lab\app.py", line 606, in page_not_found
+    return render_template('404.html'), 404
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+2025-04-15 13:36:49,894 - __main__ - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-15 13:36:49,897 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:36:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-04-15 13:36:49,921 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1458, in dispatch_request
+    self.raise_routing_exception(req)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1440, in raise_routing_exception
+    raise request.routing_exception  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\ctx.py", line 353, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1341, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1281, in handle_http_exception
+    return self.ensure_sync(handler)(e)
+  File "V:\Live-in lab\app.py", line 606, in page_not_found
+    return render_template('404.html'), 404
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 404.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\serving.py", line 370, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\werkzeug\serving.py", line 331, in execute
+    application_iter = app(environ, start_response)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2213, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2193, in wsgi_app
+    response = self.handle_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1399, in handle_exception
+    server_error = self.ensure_sync(handler)(server_error)
+  File "V:\Live-in lab\app.py", line 611, in internal_server_error
+    return render_template('500.html'), 500
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: 500.html
+2025-04-15 13:38:14,621 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.230.153:5000
+2025-04-15 13:38:14,623 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 13:38:16,604 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:38:16] "GET / HTTP/1.1" 200 -
+2025-04-15 13:38:17,390 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:38:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:39:02,652 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:39:02] "GET / HTTP/1.1" 200 -
+2025-04-15 13:39:05,578 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:39:05] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:41:57,572 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:41:57] "GET / HTTP/1.1" 200 -
+2025-04-15 13:41:58,343 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:41:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:09,394 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:09] "GET / HTTP/1.1" 200 -
+2025-04-15 13:42:09,622 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:09] "GET / HTTP/1.1" 200 -
+2025-04-15 13:42:09,820 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:09] "GET / HTTP/1.1" 200 -
+2025-04-15 13:42:09,996 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:09] "GET / HTTP/1.1" 200 -
+2025-04-15 13:42:10,271 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:12,817 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:12] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-15 13:42:12,919 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:12] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:42:12,987 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:12] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:42:13,450 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:15,801 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:17,505 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:17] "[32mGET /alerts HTTP/1.1[0m" 302 -
+2025-04-15 13:42:17,512 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:17] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:42:17,557 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:17] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:42:17,796 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:18,539 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:18] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:20,004 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:20] "[32mGET /settings HTTP/1.1[0m" 302 -
+2025-04-15 13:42:20,012 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:20] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:42:20,054 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:20] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:42:20,308 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:20,940 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:22,602 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:22] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:42:22,645 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:22] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:42:22,917 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:23,724 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:25,064 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:25] "[33mGET /signup HTTP/1.1[0m" 404 -
+2025-04-15 13:42:25,301 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:25] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:26,815 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:26] "GET / HTTP/1.1" 200 -
+2025-04-15 13:42:27,119 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:27] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:42:31,937 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:31] "GET / HTTP/1.1" 200 -
+2025-04-15 13:42:32,357 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:42:32] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:45:35,728 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:35] "GET / HTTP/1.1" 200 -
+2025-04-15 13:45:36,484 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:45:40,275 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:40] "GET / HTTP/1.1" 200 -
+2025-04-15 13:45:40,765 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:45:54,160 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:54] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-15 13:45:54,178 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:54] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:45:54,215 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:54] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:45:54,744 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:45:55,667 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:45:57,747 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:57] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-15 13:45:57,767 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:57] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:45:57,802 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:57] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:45:58,671 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:45:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:46:00,010 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:00] "GET / HTTP/1.1" 200 -
+2025-04-15 13:46:00,464 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:46:01,079 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:46:08,631 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:46:21,176 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:21] "GET / HTTP/1.1" 200 -
+2025-04-15 13:46:21,625 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:46:43,463 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:43] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-15 13:46:43,478 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:43] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:46:43,558 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:43] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:46:44,009 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:46:52,579 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:46:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:51:35,724 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:51:35] "GET / HTTP/1.1" 200 -
+2025-04-15 13:51:36,605 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:51:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:51:40,133 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:51:40] "GET / HTTP/1.1" 200 -
+2025-04-15 13:51:40,737 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:51:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:54:38,504 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:38] "GET / HTTP/1.1" 200 -
+2025-04-15 13:54:39,557 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:54:50,635 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.230.153:5000
+2025-04-15 13:54:50,635 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 13:54:53,632 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:53] "GET / HTTP/1.1" 200 -
+2025-04-15 13:54:53,684 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:53] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 13:54:53,684 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:53] "[33mGET /api/placeholder/500/350 HTTP/1.1[0m" 404 -
+2025-04-15 13:54:53,819 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:53] "GET /static/css/custom.css HTTP/1.1" 200 -
+2025-04-15 13:54:53,822 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:53] "GET /static/js/custom.js HTTP/1.1" 200 -
+2025-04-15 13:54:54,111 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:54:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:55:45,435 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:55:45] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-15 13:55:45,481 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:55:45] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:55:45,512 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:55:45] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:55:45,521 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:55:45] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 13:55:46,422 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:55:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:55:47,902 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:55:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:56:22,661 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:56:48,837 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:48] "[33mGET /contact HTTP/1.1[0m" 404 -
+2025-04-15 13:56:48,880 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:48] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:56:49,715 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:56:50,959 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:50] "[33mGET /about HTTP/1.1[0m" 404 -
+2025-04-15 13:56:51,002 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:56:51,741 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:56:53,826 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:53] "[32mGET /settings HTTP/1.1[0m" 302 -
+2025-04-15 13:56:53,846 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:53] "GET /login HTTP/1.1" 200 -
+2025-04-15 13:56:53,876 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:53] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 13:56:53,891 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:53] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 13:56:54,773 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:56:55,258 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:56:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:59:32,904 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:32] "GET / HTTP/1.1" 200 -
+2025-04-15 13:59:32,947 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:32] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 13:59:32,956 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:32] "[33mGET /api/placeholder/500/350 HTTP/1.1[0m" 404 -
+2025-04-15 13:59:32,959 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:32] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 13:59:32,965 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:32] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 13:59:33,787 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:59:36,441 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:36] "GET / HTTP/1.1" 200 -
+2025-04-15 13:59:36,504 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:36] "[33mGET /api/placeholder/500/350 HTTP/1.1[0m" 404 -
+2025-04-15 13:59:36,508 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:36] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 13:59:36,510 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:36] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 13:59:36,510 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:36] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 13:59:36,939 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:59:48,077 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.230.153:5000
+2025-04-15 13:59:48,077 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 13:59:49,627 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:49] "GET / HTTP/1.1" 200 -
+2025-04-15 13:59:49,685 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:49] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 13:59:49,732 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:49] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 13:59:49,746 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:49] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 13:59:49,756 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:49] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 13:59:50,181 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 13:59:53,770 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 13:59:53] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:01:56,802 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:01:56] "[33mGET /signup HTTP/1.1[0m" 404 -
+2025-04-15 14:01:56,854 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:01:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:23,330 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:23] "[33mGET /signup HTTP/1.1[0m" 404 -
+2025-04-15 14:03:23,385 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:24,462 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:25,471 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:25] "GET / HTTP/1.1" 200 -
+2025-04-15 14:03:25,518 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:25] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 14:03:25,521 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:25] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:03:25,525 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:25] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:03:26,767 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:27,984 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:27] "[33mGET /signup HTTP/1.1[0m" 404 -
+2025-04-15 14:03:28,063 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:29,700 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:29] "GET / HTTP/1.1" 200 -
+2025-04-15 14:03:29,735 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:29] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:03:29,740 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:29] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 14:03:29,762 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:29] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:03:30,176 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:35,807 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.230.153:5000
+2025-04-15 14:03:35,807 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 14:03:37,589 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:37] "GET / HTTP/1.1" 200 -
+2025-04-15 14:03:37,625 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:37] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 14:03:37,683 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:37] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:03:37,690 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:37] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:03:38,166 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:39,978 - app - ERROR - Exception on /signup [GET]
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "V:\Live-in lab\app.py", line 556, in register
+    return render_template('register.html')
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: register.html
+2025-04-15 14:03:39,994 - __main__ - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-15 14:03:39,999 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:39] "[35m[1mGET /signup HTTP/1.1[0m" 500 -
+2025-04-15 14:03:40,036 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:41,042 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:41] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:46,813 - app - ERROR - Exception on /signup [GET]
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "V:\Live-in lab\app.py", line 556, in register
+    return render_template('register.html')
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\jinja2\loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: register.html
+2025-04-15 14:03:46,822 - __main__ - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-15 14:03:46,825 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:46] "[35m[1mGET /signup HTTP/1.1[0m" 500 -
+2025-04-15 14:03:46,859 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:48,864 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:48] "GET / HTTP/1.1" 200 -
+2025-04-15 14:03:48,912 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:48] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 14:03:48,915 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:48] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:03:48,919 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:48] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:03:49,363 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:50,217 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:03:51,111 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:03:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:04:00,216 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:04:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:04:02,901 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:04:02] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:23:55,820 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-15 14:23:55,820 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 14:23:57,929 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:23:57] "GET / HTTP/1.1" 200 -
+2025-04-15 14:23:58,043 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:23:58] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 14:23:58,069 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:23:58] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:23:58,074 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:23:58] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:23:59,593 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:23:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:24:27,376 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:24:27] "GET /signup HTTP/1.1" 200 -
+2025-04-15 14:24:27,411 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:24:27] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:24:27,671 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:24:27] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:24:28,030 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:24:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:25:10,951 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:25:10] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:25:10,979 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:25:10] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:25:11,007 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:25:11] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:25:11,268 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:25:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:26:25,903 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:25] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:26:25,943 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:25] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:26:25,969 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:25] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:26:26,223 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:26:32,702 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:32] "GET /login HTTP/1.1" 200 -
+2025-04-15 14:26:32,741 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:32] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:26:32,755 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:32] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:26:33,540 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:26:48,895 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:48] "POST /login HTTP/1.1" 200 -
+2025-04-15 14:26:48,918 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:48] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:26:48,938 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:48] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:26:49,833 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:26:53,455 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:53] "GET /signup HTTP/1.1" 200 -
+2025-04-15 14:26:53,499 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:53] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:26:53,518 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:53] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:26:53,958 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:26:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:27:21,110 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:27:21] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:27:21,131 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:27:21] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:27:21,152 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:27:21] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:27:21,481 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:27:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:28:19,830 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:28:19] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:28:19,861 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:28:19] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:28:19,874 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:28:19] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:28:20,388 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:28:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:38:47,974 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-15 14:38:47,974 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 14:38:54,678 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:38:54] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:38:54,722 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:38:54] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:38:54,750 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:38:54] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:38:55,362 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:38:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:38:56,808 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:38:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:38:58,901 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:38:58] "GET /signup HTTP/1.1" 200 -
+2025-04-15 14:38:59,176 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:38:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:39:00,037 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:39:00,834 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:00] "GET /login HTTP/1.1" 200 -
+2025-04-15 14:39:01,624 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:39:03,386 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:03] "GET /signup HTTP/1.1" 200 -
+2025-04-15 14:39:03,438 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:03] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:39:03,446 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:03] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:39:03,859 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:39:27,323 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:27] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:39:27,363 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:27] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:39:27,370 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:27] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:39:27,601 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:39:27] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:40:04,426 - __main__ - ERROR - Error saving user: 'DataFrame' object has no attribute 'append'
+2025-04-15 14:40:04,426 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:40:04] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:40:04,452 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:40:04] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:40:04,474 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:40:04] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:40:05,289 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:40:05] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:42:10,693 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-15 14:42:10,693 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 14:42:17,066 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:17] "[32mPOST /signup HTTP/1.1[0m" 302 -
+2025-04-15 14:42:17,074 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:17] "GET /login HTTP/1.1" 200 -
+2025-04-15 14:42:17,121 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:17] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:42:17,125 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:17] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:42:18,383 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:18] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:42:29,188 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:29] "POST /login HTTP/1.1" 200 -
+2025-04-15 14:42:29,225 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:29] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:42:29,247 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:29] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:42:30,002 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:42:33,042 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:33] "GET /signup HTTP/1.1" 200 -
+2025-04-15 14:42:33,074 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:33] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:42:33,084 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:33] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:42:33,435 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:42:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:05,051 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:05] "POST /signup HTTP/1.1" 200 -
+2025-04-15 14:43:05,079 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:05] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:43:05,103 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:05] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:43:05,561 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:05] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:07,660 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:07] "GET /signup HTTP/1.1" 200 -
+2025-04-15 14:43:08,003 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:10,339 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:19,925 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-15 14:43:20,070 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:20] "GET /dashboard HTTP/1.1" 200 -
+2025-04-15 14:43:20,104 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:20] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:43:20,107 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:20] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:43:21,141 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:39,099 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:39] "GET /alerts HTTP/1.1" 200 -
+2025-04-15 14:43:40,018 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:42,265 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:42] "GET /settings HTTP/1.1" 200 -
+2025-04-15 14:43:42,292 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:42] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:43:42,310 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:42] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:43:42,930 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:46,904 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:47,356 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:51,758 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:51] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-15 14:43:51,864 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:51] "GET /dashboard HTTP/1.1" 200 -
+2025-04-15 14:43:51,892 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:51] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:43:52,324 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:43:55,785 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:55] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-15 14:43:55,879 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:55] "GET /dashboard HTTP/1.1" 200 -
+2025-04-15 14:43:55,914 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:55] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:43:55,916 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:55] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:43:56,787 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:43:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:44:05,441 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-15 14:44:05,443 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-15 14:44:07,213 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:07] "GET / HTTP/1.1" 200 -
+2025-04-15 14:44:07,241 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:07] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 14:44:07,284 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:07] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:44:07,380 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:07] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:44:07,391 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:07] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-15 14:44:08,156 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:44:13,871 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:13] "GET /login HTTP/1.1" 200 -
+2025-04-15 14:44:13,899 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:13] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:44:13,909 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:13] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:44:14,999 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:44:24,106 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:24] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-15 14:44:24,271 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:24] "GET /dashboard HTTP/1.1" 200 -
+2025-04-15 14:44:24,323 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:24] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-15 14:44:24,327 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:24] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-15 14:44:24,830 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:44:41,456 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:41] "GET /alerts HTTP/1.1" 200 -
+2025-04-15 14:44:42,017 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:44:45,745 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:45] "GET /settings HTTP/1.1" 200 -
+2025-04-15 14:44:45,788 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:45] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-15 14:44:45,801 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:45] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-15 14:44:46,489 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:44:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:45:04,674 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:45:04] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:45:08,695 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:45:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:45:10,664 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:45:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-15 14:45:11,783 - werkzeug - INFO - 127.0.0.1 - - [15/Apr/2025 14:45:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -

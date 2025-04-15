@@ -185,63 +185,63 @@
   
   <script>
     // Password strength checker
-    document.getElementById('password').addEventListener('input', function() {
-      const password = this.value;
-      const strength = document.getElementById('passwordStrength');
-      const feedback = document.getElementById('passwordFeedback');
-      
-      // Clear previous styles
-      strength.style.width = '0%';
-      strength.style.backgroundColor = '';
-      
-      if (password.length === 0) {
-        feedback.textContent = 'Password should be at least 8 characters with letters and numbers';
-        return;
-      }
-      
-      let strengthValue = 0;
-      
-      // Check length
-      if (password.length >= 8) strengthValue += 25;
-      
-      // Check for numbers
-      if (/\d/.test(password)) strengthValue += 25;
-      
-      // Check for lowercase letters
-      if (/[a-z]/.test(password)) strengthValue += 25;
-      
-      // Check for uppercase letters
-      if (/[A-Z]/.test(password)) strengthValue += 25;
-      
-      // Update strength bar
-      strength.style.width = strengthValue + '%';
-      
-      // Update color and feedback
-      if (strengthValue <= 25) {
-        strength.style.backgroundColor = '#dc3545';
-        feedback.textContent = 'Very weak password';
-      } else if (strengthValue <= 50) {
-        strength.style.backgroundColor = '#ffc107';
-        feedback.textContent = 'Weak password - add numbers and capital letters';
-      } else if (strengthValue <= 75) {
-        strength.style.backgroundColor = '#17a2b8';
-        feedback.textContent = 'Good password - consider adding special characters';
-      } else {
-        strength.style.backgroundColor = '#28a745';
-        feedback.textContent = 'Strong password!';
-      }
-    });
-    
-    // Confirm password validation
-    document.getElementById('signupForm').addEventListener('submit', function(e) {
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirm_password').value;
-      
-      if (password !== confirmPassword) {
-        e.preventDefault();
-        alert('Passwords do not match!');
-      }
-    });
+document.getElementById('password').addEventListener('input', function() {
+  const password = this.value;
+  const strength = document.getElementById('passwordStrength');
+  const feedback = document.getElementById('passwordFeedback');
+  
+  // Clear previous styles
+  strength.style.width = '0%';
+  strength.style.backgroundColor = '';
+  
+  if (password.length === 0) {
+    feedback.textContent = 'Password should be at least 8 characters with letters and numbers';
+    return;
+  }
+  
+  let strengthValue = 0;
+  
+  // Check length
+  if (password.length >= 8) strengthValue += 25;
+  
+  // Check for numbers
+  if (/\d/.test(password)) strengthValue += 25;
+  
+  // Check for lowercase letters
+  if (/[a-z]/.test(password)) strengthValue += 25;
+  
+  // Check for uppercase letters
+  if (/[A-Z]/.test(password)) strengthValue += 25;
+  
+  // Update strength bar
+  strength.style.width = strengthValue + '%';
+  
+  // Update color and feedback
+  if (strengthValue <= 25) {
+    strength.style.backgroundColor = '#dc3545';
+    feedback.textContent = 'Very weak password';
+  } else if (strengthValue <= 50) {
+    strength.style.backgroundColor = '#ffc107';
+    feedback.textContent = 'Weak password - add numbers and capital letters';
+  } else if (strengthValue <= 75) {
+    strength.style.backgroundColor = '#17a2b8';
+    feedback.textContent = 'Good password - consider adding special characters';
+  } else {
+    strength.style.backgroundColor = '#28a745';
+    feedback.textContent = 'Strong password!';
+  }
+});
+
+// Confirm password validation
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm_password').value;
+  
+  if (password !== confirmPassword) {
+    e.preventDefault();
+    alert('Passwords do not match!');
+  }
+});
   </script>
 </body>
 </html>
