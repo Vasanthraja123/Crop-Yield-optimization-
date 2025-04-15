@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CropMonitor – Smart Farming Solutions</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background-color: #f8f9fa; 
+    }
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x500?text=Smart+Crop+Monitoring') no-repeat center center/cover;
+      color: #fff; 
+      height: 600px; 
+      display: flex; 
+      align-items: center;
+      position: relative;
+    }
+    .hero .container { 
+      text-align: center; 
+      z-index: 1;
+    }
+    .hero-text {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .section { 
+      padding: 70px 0; 
+    }
+    .feature-card {
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      height: 100%;
+      overflow: hidden;
+    }
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #28a745;
+    }
+    .testimonial {
+      background-color: #e9f7ef;
+      padding: 60px 0;
+    }
+    .footer { 
+      background-color: #343a40; 
+      color: #fff; 
+      padding: 40px 0; 
+    }
+    .social-icons {
+      font-size: 1.5rem;
+      margin-right: 15px;
+    }
+    .navbar-brand { 
+      font-weight: bold; 
+      font-size: 1.8rem;
+      color: #28a745 !important;
+    }
+    .nav-link {
+      font-weight: 500;
+      margin: 0 10px;
+    }
+    .btn-cta {
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #google_translate_element { 
+      margin-right: 15px; 
+    }
+  </style>
+  <!-- Google Translate Initialization -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,ml,kn,gu,pa,ur',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/"><i class="fas fa-leaf mr-2"></i>CropMonitor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Google Translate Widget -->
+      <div id="google_translate_element"></div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a class="nav-link" href="/"><i class="fas fa-home mr-1"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="fas fa-chart-line mr-1"></i> Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/alerts"><i class="fas fa-bell mr-1"></i> Alerts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/settings"><i class="fas fa-cog mr-1"></i> Settings</a></li>
+          {% if session['username'] %}
+            <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt mr-1"></i> Logout</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt mr-1"></i> Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus mr-1"></i> Signup</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <h1 class="display-3 font-weight-bold mb-4">Smart Farming for Better Yield</h1>
+        <p class="lead mb-4">Real-time crop monitoring, intelligent recommendations, and actionable insights to revolutionize your farming practices and maximize productivity.</p>
+        <div class="mt-5">
+          <a href="/dashboard" class="btn btn-success btn-lg btn-cta mr-3"><i class="fas fa-seedling mr-2"></i>Get Started</a>
+          <a href="#features" class="btn btn-outline-light btn-lg btn-cta"><i class="fas fa-info-circle mr-2"></i>Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section bg-light">
+    <div class="container">
+      <h2 class="text-center mb-5 font-weight-bold">Smart Features for Modern Farmers</h2>
+      <div class="row text-center">
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4">
+            <div class="feature-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>AI-Powered Crop Recommendations</h3>
+            <p class="text-muted">Get personalized crop suggestions based on soil composition, climate data, and market trends to maximize your yield and profits.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4">
+            <div class="feature-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h3>Interactive Field Visualization</h3>
+            <p class="text-muted">Monitor crop health with color-coded maps showing soil moisture, nutrient levels, and growth stages in real-time across all your fields.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4">
+            <div class="feature-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <h3>Intelligent Alerts System</h3>
+            <p class="text-muted">Receive timely notifications for irrigation needs, pest risks, optimal fertilization timing, and weather warnings tailored to your crops.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center mt-4">
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4">
+            <div class="feature-icon">
+              <i class="fas fa-cloud-sun-rain"></i>
+            </div>
+            <h3>Weather Integration</h3>
+            <p class="text-muted">Access 10-day weather forecasts combined with historical patterns to make informed decisions about planting and harvesting times.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4">
+            <div class="feature-icon">
+              <i class="fas fa-water"></i>
+            </div>
+            <h3>Water Management</h3>
+            <p class="text-muted">Optimize irrigation scheduling with soil moisture sensors and evapotranspiration calculations to save water and reduce costs.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Yield Predictions</h3>
+            <p class="text-muted">Access data-driven yield forecasts and track performance trends to help with planning and maximizing your farm's profitability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonial Section -->
+  <section class="testimonial">
+    <div class="container">
+      <h2 class="text-center mb-5 font-weight-bold">What Farmers Say About Us</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <p class="card-text">"CropMonitor has transformed my farming practices. The soil moisture alerts alone have saved me thousands in irrigation costs."</p>
+              <p class="font-weight-bold mb-0">- Rajesh Patel</p>
+              <small class="text-muted">Wheat Farmer, Punjab</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <p class="card-text">"The crop recommendations are spot-on! I've diversified my crops based on the suggestions and seen a 30% increase in profit."</p>
+              <p class="font-weight-bold mb-0">- Lakshmi Naidu</p>
+              <small class="text-muted">Mixed Crop Farmer, Andhra Pradesh</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <p class="card-text">"As a new farmer, the guidance from CropMonitor has been invaluable. The interface is simple yet powerful."</p>
+              <p class="font-weight-bold mb-0">- Ananya Sharma</p>
+              <small class="text-muted">Organic Farmer, Karnataka</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="section bg-success text-white text-center">
+    <div class="container">
+      <h2 class="mb-4">Ready to Transform Your Farming?</h2>
+      <p class="lead mb-4">Join thousands of farmers who are already making data-driven decisions.</p>
+      <a href="/signup" class="btn btn-light btn-lg btn-cta">Start Free Trial</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <h4><i class="fas fa-leaf mr-2"></i>CropMonitor</h4>
+          <p>Empowering farmers with technology to enhance productivity and sustainability in agriculture.</p>
+          <div class="social-icons">
+            <a href="#" class="text-white mr-3"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Pages</h5>
+          <ul class="list-unstyled">
+            <li><a href="/" class="text-light">Home</a></li>
+            <li><a href="/dashboard" class="text-light">Dashboard</a></li>
+            <li><a href="/alerts" class="text-light">Alerts</a></li>
+            <li><a href="/settings" class="text-light">Settings</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Resources</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light">API Documentation</a></li>
+            <li><a href="#" class="text-light">Knowledge Base</a></li>
+            <li><a href="#" class="text-light">Sensor Setup Guide</a></li>
+            <li><a href="#" class="text-light">Community Forum</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Contact Us</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-envelope mr-2"></i>support@cropmonitor.com</li>
+            <li><i class="fas fa-phone mr-2"></i>+91 1800-123-4567</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i>Agri-Tech Park, Bangalore</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="bg-secondary">
+      <div class="text-center">
+        <p>&copy; 2025 CropMonitor. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropMonitor - Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background-color: #f5f7fa; 
+    }
+    .section { padding: 70px 0 30px; }
+    .footer { 
+      background-color: #343a40; 
+      color: #fff; 
+      padding: 40px 0; 
+    }
+    .navbar-brand { 
+      font-weight: bold; 
+      font-size: 1.8rem;
+      color: #28a745 !important;
+    }
+    .nav-link { 
+      font-weight: 500;
+      margin: 0 10px;
+    }
+    #google_translate_element { margin-right: 15px; }
+    .dashboard-header {
+      background-color: #28a745;
+      padding: 20px 0;
+      color: white;
+      margin-bottom: 30px;
+      border-radius: 0 0 10px 10px;
+    }
+    .weather-widget {
+      background: linear-gradient(120deg, #2193b0, #6dd5ed);
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .quick-stats {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+    .stat-icon {
+      font-size: 2.5rem;
+      margin-right: 15px;
+      color: #28a745;
+    }
+    .dashboard-card {
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+      background-color: white;
+    }
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+    }
+    .card-header {
+      background-color: #f8f9fa;
+      border-bottom: none;
+      padding: 15px 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dashboard-chart {
+      height: 250px;
+      width: 100%;
+      background-color: #f8f9fa;
+      border-radius: 5px;
+      margin: 15px 0;
+      overflow: hidden;
+    }
+    .soil-indicator {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .indicator-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .task-priority {
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .priority-high {
+      background-color: #ffebee;
+      color: #f44336;
+    }
+    .priority-medium {
+      background-color: #fff8e1;
+      color: #ffa000;
+    }
+    .priority-low {
+      background-color: #e8f5e9;
+      color: #4caf50;
+    }
+    .crop-suggestion {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f8f9fa;
+    }
+    .crop-icon {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #e8f5e9;
+      border-radius: 5px;
+      font-size: 1.5rem;
+      color: #28a745;
+    }
+    .crop-details {
+      flex: 1;
+    }
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 5px solid #28a745;
+      width: 40px;
+      height: 40px;
+      animation: spin 2s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .alert-count {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: #dc3545;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+    .weather-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .weather-icon {
+      font-size: 3rem;
+    }
+    .weather-temp {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+    .field-selector {
+      margin-bottom: 20px;
+    }
+  </style>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,ml,kn,gu,pa,ur',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/"><i class="fas fa-leaf mr-2"></i>CropMonitor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="google_translate_element"></div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home mr-1"></i> Home</a></li>
+          <li class="nav-item active"><a class="nav-link" href="/dashboard"><i class="fas fa-chart-line mr-1"></i> Dashboard</a></li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" href="/alerts"><i class="fas fa-bell mr-1"></i> Alerts <span class="alert-count">3</span></a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/settings"><i class="fas fa-cog mr-1"></i> Settings</a></li>
+          {% if session['username'] %}
+            <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt mr-1"></i> Logout</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt mr-1"></i> Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus mr-1"></i> Signup</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Header -->
+  <div class="dashboard-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1>Welcome, {{session['username']}}!</h1>
+          <p class="mb-0">Here's your farm's current status and insights</p>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <p class="mb-0"><i class="far fa-calendar-alt mr-2"></i>{{ current_date }}</p>
+          <p class="mb-0"><i class="far fa-clock mr-2"></i>Last updated: 10 minutes ago</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Dashboard Content -->
+  <section class="section">
+    <div class="container">
+      <!-- Field Selection -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="field-selector">
+            <label for="field-select" class="font-weight-bold">Select Field:</label>
+            <select id="field-select" class="form-control">
+              <option value="all">All Fields</option>
+              <option value="field1">North Field (10 acres)</option>
+              <option value="field2">South Field (15 acres)</option>
+              <option value="field3">East Field (8 acres)</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="weather-widget">
+            <h5><i class="fas fa-cloud-sun mr-2"></i>Weather Forecast</h5>
+            <div class="weather-details">
+              <div>
+                <span class="weather-temp">28°C</span>
+                <p class="mb-0">Partly Cloudy</p>
+                <small>Humidity: 65% | Wind: 12 km/h</small>
+              </div>
+              <div class="weather-icon">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats Section -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-tint"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Average Soil Moisture</h6>
+              <h4 class="mb-0">62%</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-thermometer-half"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Soil Temperature</h6>
+              <h4 class="mb-0">24°C</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Crop Health Index</h6>
+              <h4 class="mb-0">85/100</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-bug"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Pest Risk Level</h6>
+              <h4 class="mb-0">Low</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Cards -->
+      <div class="row">
+        <!-- Soil Health & Moisture -->
+        <div class="col-md-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Soil Health & Moisture</h5>
+              <a href="#" class="text-muted"><i class="fas fa-ellipsis-v"></i></a>
+            </div>
+            <div class="card-body">
+              <div class="dashboard-chart">
+                <!-- Placeholder for soil moisture chart -->
+                <div class="loader mt-5"></div>
+              </div>
+              <h6 class="mt-4">Soil Conditions by Zone</h6>
+              <div class="soil-indicator">
+                <div class="indicator-dot" style="background-color: #4CAF50;"></div>
+                <div>Zone A - Optimal (60-75% moisture)</div>
+              </div>
+              <div class="soil-indicator">
+                <div class="indicator-dot" style="background-color: #FFC107;"></div>
+                <div>Zone B - Needs Attention (45-59% moisture)</div>
+              </div>
+              <div class="soil-indicator">
+                <div class="indicator-dot" style="background-color: #F44336;"></div>
+                <div>Zone C - Critical (Below 45% moisture)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Crop Recommendations -->
+        <div class="col-md-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Crop Recommendations</h5>
+              <a href="#" class="text-muted"><i class="fas fa-ellipsis-v"></i></a>
+            </div>
+            <div class="card-body">
+              <p class="text-muted">Based on soil analysis, weather patterns, and market trends:</p>
+              
+              <div class="crop-suggestion">
+                <div class="crop-icon">
+                  <i class="fas fa-seedling"></i>
+                </div>
+                <div class="crop-details">
+                  <h6 class="mb-1">Wheat (HD-2967)</h6>
+                  <div class="progress mb-2" style="height: 5px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 95%"></div>
+                  </div>
+                  <small>95% compatibility with your soil • Expected yield: 4.5-5.2 tons/hectare</small>
+                </div>
+              </div>
+              
+              <div class="crop-suggestion">
+                <div class="crop-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="crop-details">
+                  <h6 class="mb-1">Chickpea (JG-11)</h6>
+                  <div class="progress mb-2" style="height: 5px;">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 88%"></div>
+                  </div>
+                  <small>88% compatibility with your soil • Expected yield: 1.8-2.2 tons/hectare</small>
+                </div>
+              </div>
+              
+              <div class="crop-suggestion">
+                <div class="crop-icon">
+                  <i class="fas fa-cannabis"></i>
+                </div>
+                <div class="crop-details">
+                  <h6 class="mb-1">Mustard (RH-749)</h6>
+                  <div class="progress mb-2" style="height: 5px;">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 75%"></div>
+                  </div>
+                  <small>75% compatibility with your soil • Expected yield: 1.5-1.8 tons/hectare</small>
+                </div>
+              </div>
+              
+              <a href="/crop-recommendations" class="btn btn-outline-success btn-sm mt-3">View detailed recommendations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <!-- Irrigation Scheduling -->
+        <div class="col-md-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Irrigation Schedule</h5>
+              <a href="#" class="text-muted"><i class="fas fa-ellipsis-v"></i></a>
+            </div>
+            <div class="card-body">
+              <div class="dashboard-chart">
+                <!-- Placeholder for irrigation chart -->
+                <div class="loader mt-5"></div>
+              </div>
+              
+              <div class="mt-3">
+                <h6>Upcoming Irrigation</h6>
+                <div class="task-item">
+                  <div>
+                    <strong>North Field</strong>
+                    <p class="mb-0 text-muted">Tomorrow, 6:00 AM - Duration: 45 mins</p>
+                  </div>
+                  <span class="task-priority priority-high">High</span>
+                </div>
+                <div class="task-item">
+                  <div>
+                    <strong>South Field</strong>
+                    <p class="mb-0 text-muted">April 16, 7:00 AM - Duration: 60 mins</p>
+                  </div>
+                  <span class="task-priority priority-medium">Medium</span>
+                </div>
+                <div class="task-item">
+                  <div>
+                    <strong>East Field</strong>
+                    <p class="mb-0 text-muted">April 18, 6:30 AM - Duration: 30 mins</p>
+                  </div>
+                  <span class="task-priority priority-low">Low</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Task Manager -->
+        <div class="col-md-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Farm Tasks</h5>
+              <a href="#" class="text-muted"><i class="fas fa-ellipsis-v"></i></a>
+            </div>
+            <div class="card-body">
+              <div class="task-item">
+                <div>
+                  <strong>Apply Fertilizer - North Field</strong>
+                  <p class="mb-0 text-muted">Due: April 15, 2025</p>
+                </div>
+                <span class="task-priority priority-high">High</span>
+              </div>
+              <div class="task-item">
+                <div>
+                  <strong>Pest Control - South Field</strong>
+                  <p class="mb-0 text-muted">Due: April 17, 2025</p>
+                </div>
+                <span class="task-priority priority-medium">Medium</span>
+              </div>
+              <div class="task-item">
+                <div>
+                  <strong>Soil Testing - East Field</strong>
+                  <p class="mb-0 text-muted">Due: April 20, 2025</p>
+                </div>
+                <span class="task-priority priority-low">Low</span>
+              </div>
+              <div class="task-item">
+                <div>
+                  <strong>Check Irrigation System</strong>
+                  <p class="mb-0 text-muted">Due: April 16, 2025</p>
+                </div>
+                <span class="task-priority priority-medium">Medium</span>
+              </div>
+              
+              <div class="mt-3">
+                <a href="/tasks" class="btn btn-success btn-sm mr-2">View All Tasks</a>
+                <a href="/tasks/new" class="btn btn-outline-success btn-sm">Add New Task</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <!-- Market Insights -->
+        <div class="col-md-12">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Market Insights</h5>
+              <a href="#" class="text-muted"><i class="fas fa-ellipsis-v"></i></a>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="dashboard-chart">
+                    <!-- Placeholder for market price chart -->
+                    <div class="loader mt-5"></div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <h6>Current Market Prices</h6>
+                  <div class="table-responsive">
+                    <table class="table table-sm">
+                      <thead>
+                        <tr>
+                          <th>Crop</th>
+                          <th>Price (₹/qt)</th>
+                          <th>Trend</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Wheat</td>
+                          <td>2,150</td>
+                          <td><span class="text-success"><i class="fas fa-arrow-up"></i> 2.3%</span></td>
+                        </tr>
+                        <tr>
+                          <td>Chickpea</td>
+                          <td>4,900</td>
+                          <td><span class="text-success"><i class="fas fa-arrow-up"></i> 1.5%</span></td>
+                        </tr>
+                        <tr>
+                          <td>Mustard</td>
+                          <td>5,280</td>
+                          <td><span class="text-danger"><i class="fas fa-arrow-down"></i> 0.8%</span></td>
+                        </tr>
+                        <tr>
+                          <td>Corn</td>
+                          <td>1,820</td>
+                          <td><span class="text-success"><i class="fas fa-arrow-up"></i> 3.2%</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5><i class="fas fa-leaf mr-2"></i>CropMonitor</h5>
+          <p>Smart farming solutions for sustainable agriculture and improved crop yields.</p>
+          <div class="social-links">
+            <a href="#" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="/" class="text-white">Home</a></li>
+            <li><a href="/about" class="text-white">About Us</a></li>
+            <li><a href="/features" class="text-white">Features</a></li>
+            <li><a href="/pricing" class="text-white">Pricing</a></li>
+            <li><a href="/contact" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Resources</h5>
+          <ul class="list-unstyled">
+            <li><a href="/blog" class="text-white">Blog</a></li>
+            <li><a href="/tutorials" class="text-white">Tutorials</a></li>
+            <li><a href="/faq" class="text-white">FAQ</a></li>
+            <li><a href="/support" class="text-white">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Us</h5>
+          <address class="text-white">
+            <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Farming Road, Agritech Park</p>
+            <p><i class="fas fa-phone mr-2"></i> +91 1234567890</p>
+            <p><i class="fas fa-envelope mr-2"></i> info@cropmonitor.com</p>
+          </address>
+        </div>
+      </div>
+      <hr class="bg-white">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 CropMonitor. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <p class="mb-0"><a href="/privacy" class="text-white">Privacy Policy</a> | <a href="/terms" class="text-white">Terms of Service</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+  <script>
+    // Initialize charts when the page loads
+    $(document).ready(function() {
+      // This would be replaced with actual chart initialization code
+      setTimeout(function() {
+        $('.loader').hide();
+        // Placeholder for actual chart rendering
+      }, 1500);
+      
+      // Field selector change event
+      $('#field-select').change(function() {
+        // This would handle field selection changes
+        const selectedField = $(this).val();
+        console.log("Selected field: " + selectedField);
+        // Would update dashboard data based on selection
+      });
+    });
+  </script>
+</body>
+</html>
