@@ -428,6 +428,63 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
   <script>
+    // Add this to the dashboard.html inside the script tags
+function updateFieldData() {
+    const selectedField = $('#field-select').val();
+    if (selectedField !== 'all') {
+        $.ajax({
+            url: `/api/field-data/${selectedField}`,
+            method: 'GET',
+            success: function(data) {
+                // Update weather widget
+                if (data.weather) {
+                    $('.weather-temp').text(`${Math.round(data.weather.main.temp)}°C`);
+                    $('.weather-details p').text(data.weather.weather[0].description);
+                    $('.weather-details small').text(`Humidity: ${data.weather.main.humidity}% | Wind: ${data.weather.wind.speed} km/h`);
+                }
+                
+                // Update soil moisture
+                if (data.soil) {
+                    // Find the soil moisture stat card and update it
+                    $('.stat-card:contains("Soil Moisture") h4').text(`${Math.round(data.soil.soil.moisture)}%`);
+                    $('.stat-card:contains("Soil Temperature") h4').text(`${Math.round(data.soil.soil.temperature)}°C`);
+                }
+                
+                // Update crop health index
+                if (data.crop_health) {
+                    $('.stat-card:contains("Crop Health") h4').text(`${Math.round(data.crop_health)}/100`);
+                }
+                
+                // Update pest risk
+                if (data.pest_risk) {
+                    const riskLevel = data.pest_risk.risk > 0.66 ? "High" : 
+                                    data.pest_risk.risk > 0.33 ? "Medium" : "Low";
+                    $('.stat-card:contains("Pest Risk") h4').text(riskLevel);
+                }
+                
+                // Update charts
+                updateSoilChart(data.soil);
+                updateIrrigationChart(data);
+            },
+            error: function(error) {
+                console.error("Error fetching field data:", error);
+            }
+        });
+    }
+}
+
+// Update data every 10 minutes
+setInterval(updateFieldData, 600000);
+
+// Call once when page loads
+$(document).ready(function() {
+    updateFieldData();
+    
+    // Field selector change event
+    $('#field-select').change(function() {
+        updateFieldData();
+    });
+});
     // Initialize charts when the page loads
     $(document).ready(function() {
       // This would be replaced with actual chart initialization code

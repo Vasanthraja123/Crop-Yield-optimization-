@@ -9,6 +9,22 @@ import re
 import secrets
 import logging
 from logging.handlers import RotatingFileHandler
+import requests
+from sklearn.ensemble import RandomForestClassifier
+import numpy as np
+import pickle
+import numpy as np
+import json
+from dotenv import load_dotenv
+
+# Load environment variables for API keys
+load_dotenv()
+
+# API Keys
+OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY')
+AMBEE_API_KEY = os.environ.get('AMBEE_API_KEY')
+AGROMONITORING_API_KEY = os.environ.get('AGROMONITORING_API_KEY')
+COMMODITIES_API_KEY = os.environ.get('COMMODITIES_API_KEY')
 
 # Configure logging
 if not os.path.exists('logs'):
@@ -354,13 +370,40 @@ def dashboard():
     crops = get_user_crops(user_id)
     alerts = get_user_alerts(user_id)
     unread_alerts = sum(1 for alert in alerts if not alert['is_read'])
-
+    
+    # Get real-time data
+    real_time_data = {}
+    
+    # If there are crops with location data, fetch real-time data for the first one
+    if crops and 'location' in crops[0] and crops[0]['location']:
+        try:
+            lat, lon = map(float, crops[0]['location'].split(','))
+            
+            # Get weather data
+            weather_data = get_weather_data(lat, lon, OPENWEATHER_API_KEY)
+            real_time_data['weather'] = weather_data
+            
+            # Get soil data
+            soil_data = get_soil_data(lat, lon, AMBEE_API_KEY)
+            real_time_data['soil'] = soil_data
+            
+            # Get market data for common crops
+            commodities = ['WHEAT', 'RICE', 'CORN', 'SOYBEAN']
+            market_data = get_market_prices(commodities, COMMODITIES_API_KEY)
+            real_time_data['market'] = market_data
+            
+        except Exception as e:
+            logger.error(f"Error fetching real-time data: {e}")
+            flash("Could not fetch all real-time data", "warning")
+    
     return render_template(
         'dashboard.html',
         user=user,
         crops=crops,
         recent_alerts=[alert for alert in alerts[:5]],
-        unread_alerts=unread_alerts
+        unread_alerts=unread_alerts,
+        real_time_data=real_time_data,
+        current_date=datetime.now().strftime('%B %d, %Y')
     )
 
 @app.route('/crops')
@@ -628,6 +671,90 @@ def add_security_headers(response):
 @app.route('/favicon.ico')
 def favicon():
     return '', 204
+
+def get_weather_data(lat, lon, api_key):
+    url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    return None
+
+def get_soil_data(lat, lon, api_key):
+    url = f"https://api.ambeedata.com/soil/latest/by-lat-lng?lat={lat}&lng={lon}"
+    headers = {"x-api-key": api_key}
+    response = requests.get(url, headers=headers)
+    if response.status_code == 200:
+        return response.json()
+    return None
+
+def get_pest_risk(lat, lon, crop_type, api_key):
+    url = f"https://api.agromonitoring.com/agro/1.0/pest?lat={lat}&lon={lon}&crop={crop_type}&appid={api_key}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    return None
+
+def get_market_prices(commodities, api_key):
+    url = f"https://commodities-api.com/api/latest?access_key={api_key}&base=USD&symbols={','.join(commodities)}"
+    response = requests.get(url)
+    if response.status_code == 200:
+        return response.json()
+    return None
+
+def calculate_crop_health_index(temperature, humidity, rainfall, soil_moisture):
+    # Simple model implementation
+    # In practice, use a trained model from TensorFlow/PyTorch
+    base_score = 50
+    
+    # Temperature factor (ideal range 20-30°C)
+    temp_factor = 100 - (abs(temperature - 25) * 3)
+    
+    # Moisture factor (ideal range 50-70%)
+    moisture_factor = 100 - (abs(soil_moisture - 60) * 2)
+    
+    # Humidity factor (ideal range 40-70%)
+    humidity_factor = 100 - (abs(humidity - 55) * 2)
+    
+    # Combined health index
+    health_index = (temp_factor + moisture_factor + humidity_factor) / 3
+    
+    # Clamp to 0-100 range
+    return max(0, min(100, health_index))
+
+
+# Train a model first with data like:
+# X = np.array([[soil_ph, soil_moisture, temperature, rainfall, ...]])
+# y = np.array(['wheat', 'rice', 'maize', ...])
+
+# Save the model
+# with open('crop_recommendation_model.pkl', 'wb') as file:
+#     pickle.dump(model, file)
+
+def recommend_crop(soil_ph, soil_moisture, temperature, rainfall):
+    # Load the model
+    with open('crop_recommendation_model.pkl', 'rb') as file:
+        model = pickle.load(file)
+    
+    # Make predictions
+    features = np.array([[soil_ph, soil_moisture, temperature, rainfall]])
+    prediction = model.predict(features)
+    
+    # Get probabilities
+    probs = model.predict_proba(features)[0]
+    
+    # Return top 3 recommendations with confidence scores
+    top_indices = np.argsort(probs)[-3:][::-1]
+    recommendations = []
+    
+    for idx in top_indices:
+        crop = model.classes_[idx]
+        confidence = probs[idx] * 100
+        recommendations.append({
+            'crop': crop,
+            'confidence': confidence
+        })
+    
+    return recommendations
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
