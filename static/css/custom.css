@@ -96,8 +96,8 @@ body {
   }
   
   /* Hero Section */
-  .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080?text=CropMonitor') no-repeat center center/cover;
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1920/1080') no-repeat center center/cover;
     color: #fff; 
     min-height: 600px; 
     padding: 100px 0;
@@ -259,8 +259,8 @@ body {
   }
   
   /* CTA Section */
-  .cta-section {
-    background: linear-gradient(rgba(40, 167, 69, 0.9), rgba(40, 167, 69, 0.9)), url('https://via.placeholder.com/1920x500?text=CTA+Background') no-repeat center center/cover;
+.cta-section {
+    background: linear-gradient(rgba(40, 167, 69, 0.9), rgba(40, 167, 69, 0.9)), url('/api/placeholder/1920/500') no-repeat center center/cover;
     padding: 80px 0;
     color: white;
   }
@@ -631,9 +631,13 @@ body {
     padding: 40px;
   }
   
-  .auth-logo {
+.auth-logo {
     text-align: center;
     margin-bottom: 30px;
+    max-width: 50px;
+    max-height: 50px;
+    width: 50px;
+    height: 50px;
   }
   
   .auth-title {
@@ -673,7 +677,7 @@ body {
     to { transform: translateY(0); opacity: 1; }
   }
   
-  /* Print Styles */
+/* Print Styles */
   @media print {
     .no-print {
       display: none !important;
@@ -694,3 +698,39 @@ body {
       border: 1px solid #e9ecef;
     }
   }
+
+.auth-logo {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Added classes to replace inline styles in dashboard.html */
+.bg-optimal {
+  background-color: #4CAF50 !important;
+}
+
+.bg-attention {
+  background-color: #FFC107 !important;
+}
+
+.bg-critical {
+  background-color: #F44336 !important;
+}
+
+.progress-small {
+  height: 5px !important;
+}
+
+.w-95 {
+  width: 95% !important;
+}
+
+.w-88 {
+  width: 88% !important;
+}
+
+.w-75 {
+  width: 75% !important;
+}

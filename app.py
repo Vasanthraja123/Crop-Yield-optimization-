@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify, g
 import pandas as pd
 import os
 from functools import wraps
@@ -16,6 +16,9 @@ import pickle
 import numpy as np
 import json
 from dotenv import load_dotenv
+from mock_data import get_market_prices_mock, get_pest_risk_mock, get_soil_data_mock, get_weather_data_mock
+from service import init_db
+
 
 # Load environment variables for API keys
 load_dotenv()
@@ -25,6 +28,24 @@ OPENWEATHER_API_KEY = os.environ.get('OPENWEATHER_API_KEY')
 AMBEE_API_KEY = os.environ.get('AMBEE_API_KEY')
 AGROMONITORING_API_KEY = os.environ.get('AGROMONITORING_API_KEY')
 COMMODITIES_API_KEY = os.environ.get('COMMODITIES_API_KEY')
+
+# Toggle to use mock data or real API data
+USE_MOCK_DATA = True
+
+# Fallback to mock data if API keys are missing
+if not USE_MOCK_DATA:
+    missing_keys = []
+    if not OPENWEATHER_API_KEY:
+        missing_keys.append('OPENWEATHER_API_KEY')
+    if not AMBEE_API_KEY:
+        missing_keys.append('AMBEE_API_KEY')
+    if not AGROMONITORING_API_KEY:
+        missing_keys.append('AGROMONITORING_API_KEY')
+    if not COMMODITIES_API_KEY:
+        missing_keys.append('COMMODITIES_API_KEY')
+    if missing_keys:
+        logging.Logger.warning(f"Missing API keys: {', '.join(missing_keys)}. Falling back to mock data.")
+        USE_MOCK_DATA = True
 
 # Configure logging
 if not os.path.exists('logs'):
@@ -654,15 +675,42 @@ def internal_server_error(e):
     return render_template('500.html'), 500
 
 # Helper function for security
+@app.before_request
+def generate_nonce():
+    g.nonce = secrets.token_urlsafe(16)
+
+@app.context_processor
+def inject_nonce():
+    return dict(nonce=g.get('nonce', ''))
+
+# Update the add_security_headers function to better handle Google Translate
 @app.after_request
 def add_security_headers(response):
-    response.headers['Content-Security-Policy'] = (
+    nonce = g.get('nonce', '')
+    
+    # Define specific style hashes that Google Translate uses
+    style_hashes = [
+        "'sha256-1mqaE4MG6Bl9KIVVLUhqHKyPnw4Sb3jAw5gRaqRogBU='",
+        "'sha256-YcAFp/goa4oZ/go0L/bJqARj1OFlyN88mkdtnxxdwqY='", 
+        "'sha256-65mkwZPt4V1miqNM9CcVYkrpnlQigG9H6Vi9OM/JCgY='",
+        "'sha256-2Ohx/ATsoWMOlFyvs2k+OujvqXKOHaLKZnHMV8PRbIc='",
+         "'nonce-jeG6sngB0s5_COfidshBXw'"
+    ]
+    
+    csp = (
         "default-src 'self'; "
-        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://code.jquery.com https://stackpath.bootstrapcdn.com http://translate.google.com; "
-        "style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com; "
-        "img-src 'self' data:; "
-        "font-src 'self' https://fonts.gstatic.com;"
+        "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://code.jquery.com https://stackpath.bootstrapcdn.com "
+        "http://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com https://cdnjs.cloudflare.com; "
+        f"style-src 'self' {' '.join(style_hashes)} 'nonce-{nonce}' https://cdn.jsdelivr.net "
+        f"https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com https://www.gstatic.com https://fonts.googleapis.com; "
+        f"style-src-elem 'self' {' '.join(style_hashes)} 'nonce-{nonce}' https://fonts.googleapis.com "
+        f"https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com https://www.gstatic.com; "
+        "img-src 'self' data: https://fonts.gstatic.com https://www.gstatic.com https://png.pngtree.com https://via.placeholder.com; "
+        "font-src 'self' https://fonts.gstatic.com https://fonts.googleapis.com https://cdnjs.cloudflare.com; "
+        "connect-src 'self' https://translate.googleapis.com;"
     )
+    
+    response.headers['Content-Security-Policy'] = csp
     response.headers['X-Content-Type-Options'] = 'nosniff'
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
     response.headers['X-XSS-Protection'] = '1; mode=block'
@@ -673,6 +721,8 @@ def favicon():
     return '', 204
 
 def get_weather_data(lat, lon, api_key):
+    if USE_MOCK_DATA:
+        return get_weather_data_mock(lat, lon)
     url = f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api_key}&units=metric"
     response = requests.get(url)
     if response.status_code == 200:
@@ -680,6 +730,8 @@ def get_weather_data(lat, lon, api_key):
     return None
 
 def get_soil_data(lat, lon, api_key):
+    if USE_MOCK_DATA:
+        return get_soil_data_mock(lat, lon)
     url = f"https://api.ambeedata.com/soil/latest/by-lat-lng?lat={lat}&lng={lon}"
     headers = {"x-api-key": api_key}
     response = requests.get(url, headers=headers)
@@ -688,6 +740,8 @@ def get_soil_data(lat, lon, api_key):
     return None
 
 def get_pest_risk(lat, lon, crop_type, api_key):
+    if USE_MOCK_DATA:
+        return get_pest_risk_mock(lat, lon, crop_type)
     url = f"https://api.agromonitoring.com/agro/1.0/pest?lat={lat}&lon={lon}&crop={crop_type}&appid={api_key}"
     response = requests.get(url)
     if response.status_code == 200:
@@ -695,6 +749,8 @@ def get_pest_risk(lat, lon, crop_type, api_key):
     return None
 
 def get_market_prices(commodities, api_key):
+    if USE_MOCK_DATA:
+        return get_market_prices_mock(commodities)
     url = f"https://commodities-api.com/api/latest?access_key={api_key}&base=USD&symbols={','.join(commodities)}"
     response = requests.get(url)
     if response.status_code == 200:
@@ -756,7 +812,80 @@ def recommend_crop(soil_ph, soil_moisture, temperature, rainfall):
     
     return recommendations
 
+@app.route('/api/field-data/')
+@login_required
+def get_field_data(field_id):
+    # Fetch data for specific field using field coordinates
+    user_id = session['user_id']
+    
+    # Get field location from database
+    df = load_crops()
+    field = df[(df['id'] == field_id) & (df['user_id'] == user_id)]
+    
+    if field.empty:
+        return jsonify({"error": "Field not found"}), 404
+    
+    # Extract location (assuming format is "lat,lon")
+    location = field.iloc[0]['location']
+    lat, lon = map(float, location.split(','))
+    
+    # Get weather data
+    weather_data = get_weather_data(lat, lon, OPENWEATHER_API_KEY)
+    
+    # Get soil data
+    soil_data = get_soil_data(lat, lon, AMBEE_API_KEY)
+    
+    # Get pest risk
+    crop_type = field.iloc[0]['crop_name']
+    pest_risk = get_pest_risk(lat, lon, crop_type, AGROMONITORING_API_KEY)
+    
+    # Calculate crop health
+    health_index = calculate_crop_health_index(
+        weather_data['main']['temp'],
+        weather_data['main']['humidity'],
+        weather_data.get('rain', {}).get('1h', 0),
+        soil_data['soil']['moisture']
+    )
+    
+    return jsonify({
+        "field_id": field_id,
+        "weather": weather_data,
+        "soil": soil_data,
+        "pest_risk": pest_risk,
+        "crop_health": health_index
+    })
+
+from flask import send_file
+
+@app.route('/api/placeholder/<int:width>/<int:height>')
+def placeholder_image(width, height):
+    # Generate or serve a placeholder image of the specified size
+    # For simplicity, serve a local placeholder image or generate dynamically
+    # Here, we generate a simple blank image with PIL
+    from io import BytesIO
+    from PIL import Image, ImageDraw, ImageFont
+
+    img = Image.new('RGB', (width, height), color=(200, 200, 200))
+    draw = ImageDraw.Draw(img)
+    text = f"{width}x{height}"
+    try:
+        font = ImageFont.truetype("arial.ttf", 20)
+    except:
+        font = ImageFont.load_default()
+    textwidth, textheight = draw.textbbox((0, 0), text, font=font)[2:]
+    x = (width - textwidth) / 2
+    y = (height - textheight) / 2
+    draw.text((x, y), text, fill=(50, 50, 50), font=font)
+
+    img_io = BytesIO()
+    img.save(img_io, 'PNG')
+    img_io.seek(0)
+    return send_file(img_io, mimetype='image/png')
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     debug = os.environ.get('FLASK_ENV') == 'development'
+    # Call init_db() at the beginning of your app initialization
+    init_db()
+    init_data_files()  # Your existing function
     app.run(host='0.0.0.0', port=port, debug=debug)

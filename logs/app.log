@@ -3874,3 +3874,913 @@ jinja2.exceptions.TemplateNotFound: register.html
 2025-04-16 12:43:37,142 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 12:43:37] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
 2025-04-16 12:43:37,145 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 12:43:37] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
 2025-04-16 12:43:37,752 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 12:43:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-16 13:31:38,165 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.0.5.1:5000
+2025-04-16 13:31:38,165 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-16 13:31:51,642 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:51] "GET / HTTP/1.1" 200 -
+2025-04-16 13:31:51,718 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:51] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-16 13:31:51,799 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:51] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-16 13:31:51,815 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:51] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-16 13:31:53,191 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-16 13:31:54,862 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:54] "GET /login HTTP/1.1" 200 -
+2025-04-16 13:31:54,903 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:54] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-16 13:31:54,906 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:54] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-16 13:31:55,552 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:31:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-16 13:32:05,028 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:05] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-16 13:32:05,196 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:05] "GET /dashboard HTTP/1.1" 200 -
+2025-04-16 13:32:05,281 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:05] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-16 13:32:05,283 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:05] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-16 13:32:06,510 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:06] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-16 13:32:25,744 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:25] "GET /dashboard HTTP/1.1" 200 -
+2025-04-16 13:32:25,780 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:25] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-16 13:32:25,782 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:25] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-16 13:32:26,522 - werkzeug - INFO - 127.0.0.1 - - [16/Apr/2025 13:32:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:40:27,106 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 17:40:27,107 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 17:42:19,021 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "GET / HTTP/1.1" 200 -
+2025-04-18 17:42:19,042 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "GET / HTTP/1.1" 200 -
+2025-04-18 17:42:19,176 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 17:42:19,262 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 17:42:19,542 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 17:42:19,883 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 17:42:19,884 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 17:42:19,956 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:19] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 17:42:20,987 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:42:21,343 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:42:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:43:03,493 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:03] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 17:43:03,637 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:03] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:43:03,675 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:03] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:43:03,682 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:03] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:43:04,175 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:04] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:43:17,026 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 17:43:17,289 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:17] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 17:43:17,333 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:17] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 17:43:17,337 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:17] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 17:43:17,920 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:43:43,577 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:43:43] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 17:46:29,304 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 17:46:29,307 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 17:46:31,817 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:46:31] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 17:46:31,846 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:46:31] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:46:31,903 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:46:31] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:46:31,966 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:46:31] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:46:34,791 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:46:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:47:16,087 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 17:47:16,246 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:16] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 17:47:16,330 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:16] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 17:47:16,332 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:16] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 17:47:18,091 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:18] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:47:27,897 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:27] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 17:47:27,965 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:27] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 17:47:28,001 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:28] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 17:47:28,917 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:47:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:50:14,157 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 17:50:14,160 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 17:50:16,640 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:16] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 17:50:16,668 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:16] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:50:16,746 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:16] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:50:16,749 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:16] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:50:19,499 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:19] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:50:21,470 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:21] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:50:21,598 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:21] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:50:21,605 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:21] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:50:22,202 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:50:28,202 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:28] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:50:28,268 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:28] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:50:28,317 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:28] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:50:28,737 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:50:43,948 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:43] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 17:50:44,099 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:44] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 17:50:44,176 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:44] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 17:50:44,176 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:44] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 17:50:44,750 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:50:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:53:24,041 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 17:53:24,041 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 17:53:27,534 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:53:27] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 17:53:27,552 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:53:27] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:53:27,646 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:53:27] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:53:27,649 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:53:27] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:53:28,845 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:53:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:56:39,160 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 17:56:39,160 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 17:56:45,062 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:45] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:45,122 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:45] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:45,131 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:45] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:45,174 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:45] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:45,849 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:45] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:56:49,218 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:49] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:49,341 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:49] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:49,348 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:49] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:49,356 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:49] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:49,661 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:56:50,659 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:50] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:50,728 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:50] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:50,744 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:50] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:50,763 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:50] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,230 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:56:51,294 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:51,379 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,398 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,410 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,528 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:51,590 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,607 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,636 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,739 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:51,840 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,845 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,878 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:51,939 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:51,991 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:51] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,006 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,045 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,098 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:52,172 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,173 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,213 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,296 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:52,403 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,408 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,409 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,481 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:52,568 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,576 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,612 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,657 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:52,717 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,723 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,760 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,844 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:52,933 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,940 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:52,943 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:52] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,026 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:53,077 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,108 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,132 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,176 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:53,210 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,388 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,396 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,436 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:53,476 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,482 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,516 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,546 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:53,594 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,616 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,619 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,722 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:56:53,797 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,797 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:56:53,804 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:53] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:56:54,379 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:56:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:57:02,679 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:02] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:02,766 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:02] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:02,773 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:02] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:02,791 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:02] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,022 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:57:03,464 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:03,549 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,554 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,561 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,672 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:03,728 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,742 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,759 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,852 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:03,894 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,924 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:03,948 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:03] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,021 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:04,109 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,116 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,123 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,180 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:04,228 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,231 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,258 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,310 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:04,340 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,362 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,399 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 17:57:04,580 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:04] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 17:57:11,223 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 17:57:11,223 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 17:57:13,163 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:13] "GET /login HTTP/1.1" 200 -
+2025-04-18 17:57:13,255 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:13] "[33mGET /static/images/logo.png HTTP/1.1[0m" 404 -
+2025-04-18 17:57:13,257 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:13] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 17:57:13,858 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 17:57:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:27:48,237 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 18:27:48,237 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 18:27:50,352 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:27:50] "GET /login HTTP/1.1" 200 -
+2025-04-18 18:27:50,648 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:27:50] "[33mGET /static/images/farm-background.jpg HTTP/1.1[0m" 404 -
+2025-04-18 18:27:50,798 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:27:50] "GET /static/images/logo.png HTTP/1.1" 200 -
+2025-04-18 18:27:52,061 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:27:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:29:27,357 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 18:29:27,359 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 18:29:29,309 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:29:29] "GET /login HTTP/1.1" 200 -
+2025-04-18 18:29:29,432 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:29:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 18:29:29,544 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:29:29] "GET /static/images/farm-background.png HTTP/1.1" 200 -
+2025-04-18 18:29:34,135 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:29:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:30:06,941 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:30:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 18:30:07,125 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:30:07] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:30:07,179 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:30:07] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:30:07,184 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:30:07] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:30:09,353 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:30:09] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:30:44,923 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:30:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:31:20,986 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:20] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 18:31:21,821 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:31:24,853 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:24] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 18:31:25,296 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:25] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:31:29,517 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:29] "GET /settings HTTP/1.1" 200 -
+2025-04-18 18:31:29,556 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 18:31:29,572 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:29] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 18:31:30,355 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:31:59,898 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:31:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:32:03,326 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:03] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-18 18:32:03,432 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:03] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:32:03,466 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:03] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:32:03,471 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:03] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:32:04,180 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:04] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:32:09,391 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:09] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-18 18:32:09,505 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:09] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:32:09,553 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:09] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:32:09,559 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:09] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:32:10,163 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:32:11,713 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:11] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-18 18:32:11,815 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:11] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:32:11,851 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:11] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:32:11,852 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:11] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:32:12,452 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:32:20,696 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:20] "GET /settings HTTP/1.1" 200 -
+2025-04-18 18:32:20,767 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:20] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 18:32:20,776 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:20] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 18:32:21,549 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:32:26,209 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:26] "[32mGET /login HTTP/1.1[0m" 302 -
+2025-04-18 18:32:26,335 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:26] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:32:26,376 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:26] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:32:26,385 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:26] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:32:26,792 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:32:31,576 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:32:31] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:33:22,384 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:33:22] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:34:25,254 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:25] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 18:34:26,359 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:34:27,234 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:27] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 18:34:27,696 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:27] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:34:29,117 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:29] "GET /settings HTTP/1.1" 200 -
+2025-04-18 18:34:29,168 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:29] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 18:34:29,173 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 18:34:29,834 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:29] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:34:34,788 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:34] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-18 18:34:34,900 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:34] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:34:34,935 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:34] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:34:34,961 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:34] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:34:35,385 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:34:37,113 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:37] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-18 18:34:37,234 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:37] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:34:37,276 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:37] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:34:37,282 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:37] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:34:37,945 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:34:46,589 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:46] "[32mGET /signup HTTP/1.1[0m" 302 -
+2025-04-18 18:34:46,698 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:46] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 18:34:46,726 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:46] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:34:46,733 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:46] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 18:34:47,319 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:34:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:56:40,364 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 18:56:40,365 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 18:56:52,458 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:56:52] "GET / HTTP/1.1" 200 -
+2025-04-18 18:56:52,554 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:56:52] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 18:56:52,578 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:56:52] "GET /static/js/custom.js HTTP/1.1" 200 -
+2025-04-18 18:56:52,584 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:56:52] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:56:53,729 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:56:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 18:57:32,131 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:57:32] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:59:45,646 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 18:59:45,646 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 18:59:47,954 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:59:47] "GET / HTTP/1.1" 200 -
+2025-04-18 18:59:48,024 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:59:48] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 18:59:48,077 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:59:48] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 18:59:48,092 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:59:48] "GET /static/js/custom.js HTTP/1.1" 200 -
+2025-04-18 18:59:48,574 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:59:48] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 18:59:49,775 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 18:59:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:02:05,992 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:02:05,999 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:02:07,990 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:02:07] "GET / HTTP/1.1" 200 -
+2025-04-18 19:02:08,045 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:02:08] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:02:08,089 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:02:08] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:02:08,102 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:02:08] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:02:08,542 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:02:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:06:12,449 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:12] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 19:06:12,541 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:12] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:06:12,715 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:12] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:06:12,769 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:12] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:06:13,844 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:06:28,940 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:06:28,940 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:06:35,858 - werkzeug - ERROR - 192.168.215.15 - - [18/Apr/2025 19:06:35] code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+2025-04-18 19:06:35,861 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:06:35] "[35m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03/\x95,ôH\x94\x8e\x14Wo\x0fä*/\x09\x1b¤ÿg\x1b\x9d\x19W\x8f\x10\x0boéÀi\x1b@ vùã¥HÐ\x87\x9aÆ­\x1d\x8d\x0e\x98\x0fËà\x06\x13×6¾Ów$H\x00²S\x95æÎ\x00 \x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sJJ\x00\x00þ\x0d\x00ú\x00\x00\x01\x00\x01é\x00 -~\x92ì¤»\x18\x0d­@+]Ã×Å¿NèÏû¾\x13`®\x9cË¯¨*"\x95K\x00Ð5ÒÞ­M\x07Ý\x83e>âöå\x05az¨4\x1cøÁ¬&ØVÅßèµ±Øçq"Éõ¬\x84\x12\x1aYÝ\x8c\x10\x9f\x136Ñç\\\x03«|o3Í\x90è\x0fç\x93\x7f\x89È¼®äÉòtc]TZah\x7f½tèBÒ9d&\x13ÃBÒ6ËåÓØ`\x0eâ\x8dýáÁÏ²Bx¾\x93µZwnÑ\x8bó]{O°>&H\x1f)àæ\x7f\x8fbI!\x07mÃ\x83\x81ô\x025ä¿\x00\x13\x1a[çp÷Á×a\x80Ý÷\x03\x1eØ½\x04g2ß}\x89Ë\x85Ò\x0eµ\\2e5èÞ³\x84ßAèNo\x1eN\x80f\x1cûÕÎûèúw\x90lÖÍ\x10æ\x93Fª\x8fúx_²\x06\x00\x12\x00\x00\x00+\x00\x07\x06ÊÊ\x03\x04\x03\x03ÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00#\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x0b\x00\x02\x01\x00\x00[0m" HTTPStatus.BAD_REQUEST -
+2025-04-18 19:06:35,868 - werkzeug - ERROR - 192.168.215.15 - - [18/Apr/2025 19:06:35] code 400, message Bad request syntax ('\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03v\x99Z\x17-ãdÔ°HH"r')
+2025-04-18 19:06:35,870 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:06:35] "[35m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03v\x99Z\x17-ãdÔ°HH"r[0m" HTTPStatus.BAD_REQUEST -
+2025-04-18 19:06:37,803 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:06:37] "GET / HTTP/1.1" 200 -
+2025-04-18 19:06:37,852 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:06:37] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:06:37,922 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:06:37] "GET /static/css/custom.css HTTP/1.1" 200 -
+2025-04-18 19:06:37,925 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:06:37] "GET /static/js/custom.js HTTP/1.1" 200 -
+2025-04-18 19:06:42,658 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:06:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:06:53,064 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:53] "GET / HTTP/1.1" 200 -
+2025-04-18 19:06:53,122 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:53] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:06:53,123 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:53] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:06:53,140 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:53] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:06:53,993 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:06:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:07:51,765 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:07:51,765 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:07:55,088 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:07:55] "GET / HTTP/1.1" 200 -
+2025-04-18 19:07:55,151 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:07:55] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:07:55,187 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:07:55] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:07:55,200 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:07:55] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:07:57,979 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:07:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:07,983 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:07] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:08:08,016 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:08] "GET /static/images/logo.png HTTP/1.1" 200 -
+2025-04-18 19:08:08,020 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:08] "GET /static/images/farm-background.png HTTP/1.1" 200 -
+2025-04-18 19:08:08,731 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:20,698 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 19:08:20,705 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:20] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 19:08:20,711 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:20] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:08:20,737 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:20] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:20,738 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:20] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:21,479 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:33,257 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:33] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 19:08:33,264 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:33] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 19:08:33,272 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:33] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:08:33,299 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:33] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:33,301 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:33] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:35,559 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:37,636 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:39,302 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:39,918 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:41,852 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:41] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 19:08:41,860 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:41] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:08:41,884 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:41] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:41,885 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:41] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:42,764 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:08:50,532 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:50] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 19:08:50,538 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:50] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 19:08:50,543 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:50] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:08:50,568 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:50] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:50,570 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:50] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:08:51,443 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:08:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:10:01,895 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:10:01,895 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:10:04,509 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:04] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:10:04,582 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:04] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:10:04,594 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:04] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:10:05,777 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:05] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:10:15,914 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 19:10:15,918 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:15] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-04-18 19:10:15,923 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:15] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:10:15,951 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:15] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:10:15,952 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:15] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:10:16,346 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:16] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:10:20,545 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:10:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:13:03,244 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:13:03,244 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:13:10,625 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:13:10] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:13:10,844 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:13:10] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:13:10,938 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:13:10] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:13:12,814 - werkzeug - INFO - 192.168.215.15 - - [18/Apr/2025 19:13:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:13:19,876 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:19] "GET / HTTP/1.1" 200 -
+2025-04-18 19:13:19,962 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:19] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:13:19,971 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:19] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:13:19,973 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:19] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:13:20,697 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:13:24,103 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:24] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:13:42,815 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:42] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:13:42,853 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:42] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:13:42,854 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:42] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:13:43,580 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:13:52,092 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:52] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 19:13:52,228 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:52] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 19:13:52,262 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:52] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:13:52,265 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:52] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:13:52,978 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:13:58,521 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:13:58] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:14:08,108 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:14:08] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 19:14:08,642 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:14:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:14:19,582 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:14:19] "GET /settings HTTP/1.1" 200 -
+2025-04-18 19:14:19,665 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:14:19] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:14:19,677 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:14:19] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 19:14:20,375 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:14:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:15:17,759 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:17] "[33mPOST /change-password HTTP/1.1[0m" 404 -
+2025-04-18 19:15:17,863 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:15:19,996 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:19] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-18 19:15:20,035 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:20] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 19:15:20,073 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:20] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:15:20,079 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:20] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:15:20,819 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:15:25,062 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:25] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:15:26,295 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:15:32,160 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:32] "[32mGET / HTTP/1.1[0m" 302 -
+2025-04-18 19:15:32,231 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:32] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 19:15:32,260 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:32] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:15:32,274 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:32] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:15:33,057 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:15:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:15:40,988 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:15:40,988 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:16:11,657 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:16:11] "GET / HTTP/1.1" 200 -
+2025-04-18 19:16:11,724 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:16:11] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:16:11,767 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:16:11] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:16:11,773 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:16:11] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:16:12,589 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:16:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:16:23,430 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:16:23] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:17:52,455 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:17:52,455 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:17:54,626 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:54] "GET / HTTP/1.1" 200 -
+2025-04-18 19:17:54,945 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:54] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:17:54,994 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:54] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:17:55,020 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:55] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:17:55,053 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:55] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:17:55,161 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:55] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 19:17:56,358 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:17:57,732 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:57] "GET / HTTP/1.1" 200 -
+2025-04-18 19:17:57,784 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:57] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:17:57,796 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:57] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:17:57,823 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:57] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:17:57,845 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:57] "[33mGET /bootstrap.min.css.map HTTP/1.1[0m" 404 -
+2025-04-18 19:17:58,809 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:17:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:19:31,887 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:19:31,887 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:19:33,898 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:19:33] "GET / HTTP/1.1" 200 -
+2025-04-18 19:19:34,368 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:19:34] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:19:34,503 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:19:34] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:19:34,523 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:19:34] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:19:35,571 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:19:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:20:05,903 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:20:05] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:22:09,350 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:22:09,351 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:22:38,800 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:22:38] "GET / HTTP/1.1" 200 -
+2025-04-18 19:22:39,186 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:22:39] "[33mGET /api/placeholder/50/50 HTTP/1.1[0m" 404 -
+2025-04-18 19:22:39,285 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:22:39] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:22:39,286 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:22:39] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:22:40,641 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:22:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:24:33,401 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:24:33,449 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:25:00,307 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:25:00] "GET / HTTP/1.1" 200 -
+2025-04-18 19:25:00,610 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:25:00] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:25:00,618 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:25:00] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:25:00,993 - app - ERROR - Exception on /api/placeholder/50/50 [GET]
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "V:\Live-in lab\app.py", line 850, in placeholder_image
+    textwidth, textheight = draw.textsize(text, font=font)
+AttributeError: 'ImageDraw' object has no attribute 'textsize'
+2025-04-18 19:25:00,995 - __main__ - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-18 19:25:00,999 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:25:00] "[35m[1mGET /api/placeholder/50/50 HTTP/1.1[0m" 500 -
+2025-04-18 19:25:05,558 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:25:05] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:25:54,262 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:25:54,266 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:27:14,622 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:27:14,622 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:27:25,969 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:27:25] "GET / HTTP/1.1" 200 -
+2025-04-18 19:27:26,457 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:27:26] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:27:26,474 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:27:26] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:27:26,539 - app - ERROR - Exception on /api/placeholder/50/50 [GET]
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "V:\Live-in lab\app.py", line 850, in placeholder_image
+    textwidth, textheight = draw.textsize(text, font=font)
+AttributeError: 'ImageDraw' object has no attribute 'textsize'
+2025-04-18 19:27:26,542 - __main__ - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-18 19:27:26,544 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:27:26] "[35m[1mGET /api/placeholder/50/50 HTTP/1.1[0m" 500 -
+2025-04-18 19:27:27,118 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:27:27] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:31:32,041 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:31:32,041 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:31:37,120 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:31:37] "GET / HTTP/1.1" 200 -
+2025-04-18 19:31:37,720 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:31:37] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:31:37,775 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:31:37] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:31:37,889 - app - ERROR - Exception on /api/placeholder/50/50 [GET]
+Traceback (most recent call last):
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\91861\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "V:\Live-in lab\app.py", line 850, in placeholder_image
+    textwidth, textheight = draw.textsize(text, font=font)
+AttributeError: 'ImageDraw' object has no attribute 'textsize'
+2025-04-18 19:31:37,892 - __main__ - ERROR - Server error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2025-04-18 19:31:37,896 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:31:37] "[35m[1mGET /api/placeholder/50/50 HTTP/1.1[0m" 500 -
+2025-04-18 19:31:39,314 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:31:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:35:20,171 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:35:20,171 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:35:22,809 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:35:22] "GET / HTTP/1.1" 200 -
+2025-04-18 19:35:23,291 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:35:23] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:35:23,323 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:35:23] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:35:23,876 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:35:23] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 19:35:25,042 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:35:25] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:41:24,833 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:41:24,833 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:41:38,930 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:41:38] "GET / HTTP/1.1" 200 -
+2025-04-18 19:41:39,386 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:41:39] "GET /static/css/custom.css HTTP/1.1" 200 -
+2025-04-18 19:41:39,425 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:41:39] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:41:39,427 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:41:39] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 19:41:39,514 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:41:39] "GET /api/placeholder/1920/500 HTTP/1.1" 200 -
+2025-04-18 19:41:39,578 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:41:39] "GET /api/placeholder/1920/1080 HTTP/1.1" 200 -
+2025-04-18 19:41:42,701 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:41:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:42:18,331 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:42:18] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:42:18,375 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:42:18] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:42:19,932 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:42:19] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:43:20,139 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:20] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 19:43:20,204 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:20] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 19:43:20,247 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:20] "GET /static/css/custom.css HTTP/1.1" 200 -
+2025-04-18 19:43:20,249 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:20] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:43:28,988 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:43:32,358 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:32] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:43:37,621 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:37] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 19:43:38,916 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:43:39,678 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:39] "GET /settings HTTP/1.1" 200 -
+2025-04-18 19:43:39,706 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:39] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:43:40,149 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:43:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:51:53,782 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:51:53,782 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:51:57,813 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:51:57] "[32mGET /settings HTTP/1.1[0m" 302 -
+2025-04-18 19:51:57,864 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:51:57] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:51:58,097 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:51:58] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:51:59,620 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:51:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:52:02,771 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:52:02] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:52:02,790 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:52:02] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:52:04,008 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:52:04] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:57:41,523 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 19:57:41,523 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 19:57:43,667 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:43] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:57:43,876 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:43] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:57:45,474 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:45] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:57:49,094 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:49] "GET / HTTP/1.1" 200 -
+2025-04-18 19:57:49,136 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:49] "GET /static/css/custom.css HTTP/1.1" 200 -
+2025-04-18 19:57:49,143 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:49] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:57:49,313 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:49] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 19:57:49,333 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:49] "GET /api/placeholder/1920/500 HTTP/1.1" 200 -
+2025-04-18 19:57:49,353 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:49] "GET /api/placeholder/1920/1080 HTTP/1.1" 200 -
+2025-04-18 19:57:51,274 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:57:53,229 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:53] "GET /login HTTP/1.1" 200 -
+2025-04-18 19:57:53,259 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:53] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 19:57:53,858 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:57:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:58:00,039 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:58:00] "GET / HTTP/1.1" 200 -
+2025-04-18 19:58:00,075 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:58:00] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 19:58:00,079 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:58:00] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 19:58:00,082 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:58:00] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 19:58:01,191 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:58:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 19:58:01,414 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 19:58:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:00:40,714 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:00:40,714 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:00:43,229 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:43] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:00:43,504 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:43] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:00:55,773 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:55] "GET / HTTP/1.1" 200 -
+2025-04-18 20:00:55,925 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:55] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:00:55,949 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:55] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:00:56,110 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:56] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 20:00:56,132 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:56] "GET /api/placeholder/1920/500 HTTP/1.1" 200 -
+2025-04-18 20:00:56,175 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:56] "GET /api/placeholder/1920/1080 HTTP/1.1" 200 -
+2025-04-18 20:00:58,321 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:58] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:00:58,383 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:00:58] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:01:01,443 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:01:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:01:21,077 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:01:21] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:01:21,144 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:01:21] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:01:21,982 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:01:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:03:35,055 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:03:35,055 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:03:38,394 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:03:38] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:03:38,600 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:03:38] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:03:41,141 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:03:41] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:03:41,228 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:03:41] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:03:42,040 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:03:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:03:54,123 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:03:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:04:24,883 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:04:24,884 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:04:28,401 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:28] "GET / HTTP/1.1" 200 -
+2025-04-18 20:04:28,516 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:28] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:04:28,530 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:28] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:04:28,622 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:28] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 20:04:28,637 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:28] "GET /api/placeholder/1920/500 HTTP/1.1" 200 -
+2025-04-18 20:04:28,655 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:28] "GET /api/placeholder/1920/1080 HTTP/1.1" 200 -
+2025-04-18 20:04:29,788 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:29] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:04:33,443 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:33] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:04:33,536 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:33] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:04:34,009 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:04:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:06:23,486 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:06:23,488 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:06:24,459 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:24] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:24,611 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:24] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:29,449 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:29] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:29,527 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:29,642 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:29] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:29,688 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:29,808 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:29] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:29,873 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:29] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:29,964 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:29] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:30,005 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:30,124 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:30,156 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:30,271 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:30,326 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:30,420 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:30,475 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:30,560 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:30,594 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:30] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:31,086 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:31] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:31,138 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:31] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:31,224 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:31] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:31,257 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:31] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:31,259 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:31] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:06:31,337 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:31] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:06:36,756 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:06:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:07:05,875 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:07:05,877 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:07:08,743 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:07:08] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:07:08,868 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:07:08] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:07:18,274 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:07:18] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:09:12,872 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:09:12,872 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:09:15,482 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:09:15] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:09:15,825 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:09:15] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:09:22,104 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:09:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:12:41,415 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:12:41,416 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:12:46,224 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:12:46] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:12:46,385 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:12:46] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:12:57,674 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:12:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:16:12,667 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:16:12,667 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:16:20,638 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:20] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:16:20,784 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:20] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:16:20,786 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:20] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:16:23,049 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:16:44,674 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:44] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 20:16:44,755 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:44] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 20:16:44,793 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:44] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:16:44,794 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:44] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:16:45,709 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:45] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:16:57,404 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:57] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 20:16:57,977 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:16:59,762 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:59] "GET /settings HTTP/1.1" 200 -
+2025-04-18 20:16:59,784 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:16:59] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:17:00,476 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:17:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:17:03,085 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:17:03] "GET /settings HTTP/1.1" 200 -
+2025-04-18 20:17:03,107 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:17:03] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:17:03,682 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:17:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:17:07,930 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:17:07] "GET /settings HTTP/1.1" 200 -
+2025-04-18 20:17:07,948 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:17:07] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:17:11,121 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:17:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:20:34,123 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:34] "GET /settings HTTP/1.1" 200 -
+2025-04-18 20:20:34,320 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:34] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:20:50,026 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:20:50,026 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:20:53,885 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:53] "GET / HTTP/1.1" 200 -
+2025-04-18 20:20:54,165 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:54] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:20:54,165 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:54] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:20:54,273 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:54] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 20:20:54,292 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:54] "GET /api/placeholder/1920/500 HTTP/1.1" 200 -
+2025-04-18 20:20:54,310 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:54] "GET /api/placeholder/1920/1080 HTTP/1.1" 200 -
+2025-04-18 20:20:56,069 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:56] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:20:56,095 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:56] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:20:56,112 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:20:56] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:21:01,421 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:21:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:21:09,438 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:21:09] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:25:18,544 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:25:18,545 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:25:21,634 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:21] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:25:21,924 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:21] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:25:21,976 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:21] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:25:36,373 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:25:38,439 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:38] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:25:46,247 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:46] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:25:46,398 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:46] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:25:46,412 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:46] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:25:49,072 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:25:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:28:22,590 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:28:22,590 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:28:25,024 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:28:25] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:28:25,252 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:28:25] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:28:25,308 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:28:25] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:28:28,916 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:28:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:29:41,143 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:29:41,143 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:29:42,798 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:29:42] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:29:42,886 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:29:42] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:29:42,899 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:29:42] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:29:44,793 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:29:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:30:15,441 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:30:15,441 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:30:21,298 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:21] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:30:21,361 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:21] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:30:21,380 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:21] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:30:31,610 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.215.15:5000
+2025-04-18 20:30:31,618 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:30:33,412 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:33] "GET / HTTP/1.1" 200 -
+2025-04-18 20:30:33,477 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:33] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:30:33,521 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:33] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:30:33,665 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:33] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 20:30:33,682 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:33] "GET /api/placeholder/1920/500 HTTP/1.1" 200 -
+2025-04-18 20:30:33,701 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:33] "GET /api/placeholder/1920/1080 HTTP/1.1" 200 -
+2025-04-18 20:30:40,730 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:30:45,305 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:45] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:30:45,334 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:45] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:30:45,355 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:45] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:30:46,282 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:30:57,491 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:57] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 20:30:57,595 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:57] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 20:30:57,629 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:57] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:30:57,632 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:57] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:30:58,691 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:30:58] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:31:10,624 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:10] "[33mGET /crop-recommendations HTTP/1.1[0m" 404 -
+2025-04-18 20:31:10,650 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:31:12,415 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:31:15,656 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:15] "[33mGET /tasks HTTP/1.1[0m" 404 -
+2025-04-18 20:31:15,680 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:31:16,510 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:16] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:31:17,844 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:17] "[33mGET /tasks/new HTTP/1.1[0m" 404 -
+2025-04-18 20:31:17,878 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:31:18,845 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:18] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:31:24,560 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:24] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:31:40,128 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:40] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 20:31:40,159 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:40] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:31:40,173 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:40] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:31:41,589 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:31:41] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:50:39,156 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-18 20:50:39,156 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-18 20:50:44,555 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:44] "GET / HTTP/1.1" 200 -
+2025-04-18 20:50:44,930 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:44] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:50:44,934 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:44] "GET /static/css/custom.css HTTP/1.1" 200 -
+2025-04-18 20:50:45,047 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:45] "GET /api/placeholder/50/50 HTTP/1.1" 200 -
+2025-04-18 20:50:45,155 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:45] "GET /api/placeholder/1920/500 HTTP/1.1" 200 -
+2025-04-18 20:50:45,190 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:45] "GET /api/placeholder/1920/1080 HTTP/1.1" 200 -
+2025-04-18 20:50:47,555 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:50:51,094 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:50:51] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:51:14,641 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:14] "GET /signup HTTP/1.1" 200 -
+2025-04-18 20:51:14,696 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:14] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:51:14,704 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:14] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:51:15,346 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:51:26,624 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:51:30,472 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:30] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:51:30,606 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:30] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:51:30,609 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:30] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:51:31,995 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:31] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:51:34,894 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:51:47,645 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:47] "GET /login HTTP/1.1" 200 -
+2025-04-18 20:51:47,682 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:47] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:51:47,683 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:47] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:51:48,670 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:51:48] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:52:02,166 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:02] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-04-18 20:52:02,269 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:02] "GET /dashboard HTTP/1.1" 200 -
+2025-04-18 20:52:02,307 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:02] "[36mGET /static/js/custom.js HTTP/1.1[0m" 304 -
+2025-04-18 20:52:02,307 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:02] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:52:03,488 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:52:08,988 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:08] "[36mGET /static/css/custom.css HTTP/1.1[0m" 304 -
+2025-04-18 20:52:20,528 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:20] "GET /alerts HTTP/1.1" 200 -
+2025-04-18 20:52:21,608 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:52:25,482 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:25] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+2025-04-18 20:52:34,399 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:34] "GET /settings HTTP/1.1" 200 -
+2025-04-18 20:52:34,478 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:34] "[36mGET /static/images/logo.png HTTP/1.1[0m" 304 -
+2025-04-18 20:52:34,486 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:34] "[36mGET /static/images/farm-background.png HTTP/1.1[0m" 304 -
+2025-04-18 20:52:35,304 - werkzeug - INFO - 127.0.0.1 - - [18/Apr/2025 20:52:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -

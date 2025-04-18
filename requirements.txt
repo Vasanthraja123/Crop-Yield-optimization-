@@ -2,3 +2,4 @@ Flask
 pandas
 bcrypt
 openpyxl
+google-cloud-translate==3.11.1
