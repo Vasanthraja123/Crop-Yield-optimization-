@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropMonitor - Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}" />
+  <style nonce="{{ g.nonce }}">
+    /* Additional custom styles */
+    .dashboard-header {
+      padding: 80px 0 20px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .section {
+      padding: 30px 0;
+    }
+    .dashboard-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+      height: 100%;
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e9ecef;
+      background-color: #fff;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .card-body {
+      padding: 20px;
+    }
+    .stat-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      background: rgba(40, 167, 69, 0.1);
+      margin-right: 15px;
+    }
+    .stat-icon i {
+      font-size: 24px;
+      color: #28a745;
+    }
+    .weather-widget {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+    .weather-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .weather-temp {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .weather-icon i {
+      font-size: 3rem;
+      color: #ffc107;
+    }
+    .data-timestamp {
+      font-size: 12px;
+      color: #6c757d;
+      margin-top: 5px;
+    }
+    .soil-indicator {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .indicator-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .bg-optimal { background-color: #28a745; }
+    .bg-attention { background-color: #ffc107; }
+    .bg-critical { background-color: #dc3545; }
+    .crop-suggestion {
+      display: flex;
+      align-items: flex-start;
+      padding: 1.25rem;
+      border-bottom: 1px solid #e9ecef;
+      transition: background-color 0.2s ease;
+    }
+    .crop-suggestion:last-child {
+      border-bottom: none;
+    }
+    .crop-suggestion:hover {
+      background-color: #f8f9fa;
+    }
+    .crop-icon {
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      background: rgba(40, 167, 69, 0.1);
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+    .crop-icon i {
+      font-size: 1.25rem;
+      color: #28a745;
+    }
+    .crop-details {
+      flex: 1;
+    }
+    .crop-compatibility {
+      margin-top: 0.75rem;
+    }
+    .progress-small {
+      height: 6px;
+    }
+    .w-95 { width: 95%; }
+    .w-88 { width: 88%; }
+    .w-75 { width: 75%; }
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+    .task-priority {
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+    .priority-high { background-color: #f8d7da; color: #721c24; }
+    .priority-medium { background-color: #fff3cd; color: #856404; }
+    .priority-low { background-color: #d4edda; color: #155724; }
+    .sensor-offline {
+      background-color: #f8f9fa;
+      color: #6c757d;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+      margin: 15px 0;
+    }
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 5px solid #28a745;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .footer {
+      background-color: #28a745;
+      color: #fff;
+      padding: 40px 0 20px;
+    }
+    .alert-count {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #dc3545;
+      color: white;
+      border-radius: 50%;
+      min-width: 18px;
+      height: 18px;
+      font-size: 11px;
+      text-align: center;
+      line-height: 18px;
+    }
+    .no-data {
+      text-align: center;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 4px;
+      color: #6c757d;
+    }
+    .sensor-status {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    .status-online { background-color: #28a745; }
+    .status-offline { background-color: #dc3545; }
+    .status-warning { background-color: #ffc107; }
+    .refresh-btn {
+      background: none;
+      border: none;
+      color: #28a745;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .progress {
+      background-color: #e9ecef;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      transition: width 0.6s ease;
+    }
+    .bg-success {
+      background-color: #28a745;
+    }
+    .progress-bar[data-status="Optimal"] {
+      background-color: #28a745;
+    }
+    .progress-bar[data-status="Good"] {
+      background-color: #ffc107;
+    }
+    .progress-bar[data-status="Needs Attention"] {
+      background-color: #dc3545;
+    }
+    .soil-indicator {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .indicator-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    .progress {
+      background-color: #e9ecef;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      transition: width 0.6s ease;
+    }
+    .bg-success { background-color: #28a745 !important; }
+    .bg-warning { background-color: #ffc107 !important; }
+    .bg-danger { background-color: #dc3545 !important; }
+    .market-data {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .dashboard-card {
+      height: 100%;
+      margin-bottom: 20px;
+    }
+    /* Progress bar styles */
+    .progress-bar-container {
+      margin-bottom: 1rem;
+    }
+    .progress-small {
+      height: 6px;
+      border-radius: 3px;
+      background-color: #e9ecef;
+    }
+    .progress-bar {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .bg-success {
+      background-color: #28a745;
+    }
+    /* Progress bar custom styles */
+    .custom-progress-container {
+      margin-bottom: 1rem;
+    }
+    .custom-progress-outer {
+      height: 6px;
+      border-radius: 3px;
+      background-color: #e9ecef;
+    }
+    .custom-progress-inner {
+      height: 100%;
+      border-radius: 3px;
+      background-color: #28a745;
+      transition: width 0.3s ease;
+    }
+    .progress-wrapper {
+      width: 100%;
+      background-color: #e9ecef;
+      border-radius: 3px;
+      height: 6px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .progress-fill {
+      background-color: #28a745;
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+    .dashboard-chart {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      margin: 0 auto;
+    }
+    .dashboard-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .dashboard-card .card-header {
+      background: transparent;
+      border-bottom: 1px solid #e9ecef;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .dashboard-card .card-body {
+      padding: 20px;
+      min-height: 350px;
+    }
+    .loader {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+    .no-data {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #6c757d;
+    }
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    /* Ensure chart containers are visible */
+    #irrigationChartContainer {
+      position: relative;
+      height: 300px !important;
+      width: 100% !important;
+    }
+    #irrigationChart {
+      display: block;
+      height: 100% !important;
+      width: 100% !important;
+    }
+    .badge-success {
+      background-color: #28a745;
+      font-weight: 500;
+      padding: 0.35em 0.65em;
+    }
+    .progress {
+      overflow: hidden;
+      background-color: #e9ecef;
+    }
+    .progress-bar {
+      transition: width 1s ease;
+      background-color: #28a745;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/"><i class="fas fa-leaf mr-2"></i>CropMonitor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home mr-1"></i> Home</a></li>
+          <li class="nav-item active"><a class="nav-link" href="/dashboard"><i class="fas fa-chart-line mr-1"></i> Dashboard</a></li>
+          <li class="nav-item position-relative">
+            <a class="nav-link" href="/alerts"><i class="fas fa-bell mr-1"></i> Alerts <span class="alert-count" id="alertCount">0</span></a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/settings"><i class="fas fa-cog mr-1"></i> Settings</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-globe mr-1"></i> Language
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div id="google_translate_element"></div>
+            </div>
+          </li>
+          {% if session['username'] %}
+            <li class="nav-item"><a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt mr-1"></i> Logout</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link" href="/login"><i class="fas fa-sign-in-alt mr-1"></i> Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/signup"><i class="fas fa-user-plus mr-1"></i> Signup</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Header -->
+  <div class="dashboard-header">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h1>Welcome, <span id="username">{{ user.full_name or user.username }}</span>!</h1>
+          <p class="mb-0">Here's your farm's current status and insights</p>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <p class="mb-0"><i class="far fa-calendar-alt mr-2"></i><span id="currentDate">{{ current_date }}</span></p>
+          <p class="mb-0">
+            <i class="far fa-clock mr-2"></i>Last updated: <span id="lastUpdated">--</span>
+            <button class="refresh-btn ml-2" id="refreshDashboard" title="Refresh Dashboard">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Dashboard Content -->
+  <section class="section">
+    <div class="container">
+      <!-- Field Selection and System Status -->
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <div class="field-selector">
+            <label for="field-select" class="font-weight-bold">Select Field:</label>
+            <select id="field-select" class="form-control">
+              <option value="all">All Fields</option>
+              <option value="field1">North Field (10 acres)</option>
+              <option value="field2">South Field (15 acres)</option>
+              <option value="field3">East Field (8 acres)</option>
+            </select>
+          </div>
+          <div class="sensor-status-container mt-2">
+            <small>
+              <span class="sensor-status status-online"></span> Sensors Online: <span id="sensorsOnline">--</span>
+              <span class="sensor-status status-offline ml-3"></span> Sensors Offline: <span id="sensorsOffline">--</span>
+              <span class="sensor-status status-warning ml-3"></span> Sensors Warning: <span id="sensorsWarning">--</span>
+            </small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="weather-widget">
+            <h5><i class="fas fa-cloud-sun mr-2"></i>Weather Forecast</h5>
+            <div class="weather-details">
+              <div>
+                <span class="weather-temp">{{ weather.main.temp|round|int if weather and weather.main.temp else '--' }}°C</span>
+                <p class="mb-0">{{ weather.weather[0].description|title if weather and weather.weather else '--' }}</p>
+                <small>
+                  Humidity: {{ weather.main.humidity|round|int if weather and weather.main.humidity else '--' }}% | 
+                  Wind: {{ (weather.wind.speed * 3.6)|round|int if weather and weather.wind and weather.wind.speed else '--' }} km/h
+                </small>
+              </div>
+              <div class="weather-icon">
+                {% set weather_desc = weather.weather[0].description|lower if weather and weather.weather else '' %}
+                <i class="fas fa-{{ 'sun' if 'clear' in weather_desc else 'cloud-sun' if 'scattered' in weather_desc or 'few' in weather_desc else 'cloud' if 'cloudy' in weather_desc else 'cloud-rain' if 'rain' in weather_desc else 'cloud' }}"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats Section -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-tint"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Average Soil Moisture</h6>
+              <h4 class="mb-0">{{ soil_nutrients.moisture|round|int if soil_nutrients and soil_nutrients.moisture else '--' }}%</h4>
+              <div class="data-timestamp">Last updated: {{ current_date }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-thermometer-half"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Soil Temperature</h6>
+              <h4 class="mb-0">{{ weather.main.temp|round|int if weather and weather.main.temp else '--' }}°C</h4>
+              <div class="data-timestamp">Last updated: {{ current_date }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Crop Health Index</h6>
+              <h4 class="mb-0">{{ charts.soil.moisture[-1]|round|int if charts and charts.soil and charts.soil.moisture else '--' }}%</h4>
+              <div class="data-timestamp">Last updated: {{ current_date }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-bug"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Pest Risk Level</h6>
+              <h4 class="mb-0">{{ 'Low' if charts.soil.moisture[-1] > 60 else 'Medium' if charts.soil.moisture[-1] > 40 else 'High' if charts and charts.soil and charts.soil.moisture else '--' }}</h4>
+              <div class="data-timestamp">Last updated: {{ current_date }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soil Nutrients Section -->
+      <div class="row mb-4">
+        <!-- Nitrogen Card -->
+        <div class="col-md-4">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-flask"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Nitrogen (N)</h6>
+              <h4 class="mb-0" id="soilNitrogen">{% if soil_nutrients and soil_nutrients.nitrogen %}{{ (soil_nutrients.nitrogen|round|int) }} ppm{% else %}--{% endif %}</h4>
+              <div class="progress progress-small mt-2">
+                {% set n_percent = (soil_nutrients.nitrogen/120*100)|round|int if soil_nutrients and soil_nutrients.nitrogen else 0 %}
+                {% set n_percent = n_percent if n_percent <= 100 else 100 %}
+                <div class="progress-bar bg-success" role="progressbar" 
+                     style="width: {{ n_percent }}%" 
+                     aria-valuenow="{{ n_percent }}"
+                     aria-valuemin="0" 
+                     aria-valuemax="120">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Phosphorus Card -->
+        <div class="col-md-4">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-flask"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Phosphorus (P)</h6>
+              <h4 class="mb-0" id="soilPhosphorus">{% if soil_nutrients and soil_nutrients.phosphorus %}{{ (soil_nutrients.phosphorus|round|int) }} ppm{% else %}--{% endif %}</h4>
+              <div class="progress progress-small mt-2">
+                {% set p_percent = (soil_nutrients.phosphorus/80*100)|round|int if soil_nutrients and soil_nutrients.phosphorus else 0 %}
+                {% set p_percent = p_percent if p_percent <= 100 else 100 %}
+                <div class="progress-bar bg-info" role="progressbar" 
+                     style="width: {{ p_percent }}%" 
+                     aria-valuenow="{{ p_percent }}"
+                     aria-valuemin="0" 
+                     aria-valuemax="80">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Potassium Card -->
+        <div class="col-md-4">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-flask"></i>
+            </div>
+            <div>
+              <h6 class="text-muted mb-1">Potassium (K)</h6>
+              <h4 class="mb-0" id="soilPotassium">{% if soil_nutrients and soil_nutrients.potassium %}{{ (soil_nutrients.potassium|round|int) }} ppm{% else %}--{% endif %}</h4>
+              <div class="progress progress-small mt-2">
+                {% set k_percent = (soil_nutrients.potassium/100*100)|round|int if soil_nutrients and soil_nutrients.potassium else 0 %}
+                {% set k_percent = k_percent if k_percent <= 100 else 100 %}
+                <div class="progress-bar bg-warning" role="progressbar" 
+                     style="width: {{ k_percent }}%" 
+                     aria-valuenow="{{ k_percent }}"
+                     aria-valuemin="0" 
+                     aria-valuemax="100">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- N,P,K Chart Section -->
+      <div class="row mt-4">
+        <div class="col-md-12">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Soil Nutrients Trend (N,P,K)</h5>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="npkTimeRange" data-toggle="dropdown">
+                  Last 30 Days
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item npk-range" href="#" data-days="7">Last 7 Days</a>
+                  <a class="dropdown-item npk-range" href="#" data-days="30">Last 30 Days</a>
+                  <a class="dropdown-item npk-range" href="#" data-days="90">Last 90 Days</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="npkChartContainer" class="dashboard-chart">
+                <canvas id="npkChart"></canvas>
+                <div class="loader" id="npkChartLoader"></div>
+                <div class="no-data d-none" id="npkNoData">
+                  <i class="fas fa-database mb-3" style="font-size: 2rem; color: #6c757d;"></i>
+                  <p class="mb-0">No N,P,K data available for the selected time range</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Dashboard Cards -->
+      <div class="row">
+        <!-- Soil Health & Moisture -->
+        <div class="col-md-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Soil Health & Moisture</h5>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="soilTimeRange" data-toggle="dropdown">
+                  Last 7 Days
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item soil-range" href="#" data-days="1">Last 24 Hours</a>
+                  <a class="dropdown-item soil-range" href="#" data-days="7">Last 7 Days</a>
+                  <a class="dropdown-item soil-range" href="#" data-days="30">Last 30 Days</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="soilChartContainer" class="dashboard-chart">
+                <canvas id="soilMoistureChart"></canvas>
+                <div class="loader" id="soilChartLoader"></div>
+                <div class="no-data d-none" id="soilNoData">
+                  <i class="fas fa-database mb-3" style="font-size: 2rem; color: #6c757d;"></i>
+                  <p class="mb-0">No soil data available for the selected field</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Irrigation & Rainfall -->
+        <div class="col-md-6">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Irrigation & Rainfall</h5>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="irrigationTimeRange" data-toggle="dropdown">
+                  Last 7 Days
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item irrigation-range" href="#" data-days="7">Last 7 Days</a>
+                  <a class="dropdown-item irrigation-range" href="#" data-days="14">Last 14 Days</a>
+                  <a class="dropdown-item irrigation-range" href="#" data-days="30">Last 30 Days</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id="irrigationChartContainer" class="dashboard-chart" style="height: 300px; position: relative;">
+                <canvas id="irrigationChart"></canvas>
+                <div class="loader" id="irrigationChartLoader"></div>
+                <div class="no-data d-none" id="irrigationNoData">
+                  <i class="fas fa-database mb-3" style="font-size: 2rem; color: #6c757d;"></i>
+                  <p class="mb-0">No irrigation data available for the selected field</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Market Prices & Crop Recommendations -->
+      <div class="row mt-4">
+        <!-- Market Prices -->
+        <div class="col-md-8">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Market Prices</h5>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="marketTimeRange" data-toggle="dropdown">
+                  Last 30 Days
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item market-range" href="#" data-days="7">Last 7 Days</a>
+                  <a class="dropdown-item market-range" href="#" data-days="30">Last 30 Days</a>
+                  <a class="dropdown-item market-range" href="#" data-days="90">Last 90 Days</a>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-8">
+                  <div id="marketChartContainer" class="dashboard-chart">
+                    <canvas id="marketPriceChart"></canvas>
+                    <div class="loader" id="marketChartLoader"></div>
+                    <div class="no-data d-none" id="marketChartNoData">
+                      <i class="fas fa-database mb-3" style="font-size: 2rem; color: #6c757d;"></i>
+                      <p class="mb-0">No market data available</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="table-responsive">
+                    <table class="table table-sm">
+                      <thead>
+                        <tr>
+                          <th>Crop</th>
+                          <th>Price (₹/qt)</th>
+                          <th>Trend</th>
+                        </tr>
+                      </thead>
+                      <tbody id="marketPricesTable">
+                        <!-- Market prices will be loaded dynamically -->
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="no-data d-none" id="marketTableNoData">
+                    <p class="mb-0">No market price data available</p>
+                  </div>
+                  <div class="text-right mt-3">
+                    <small class="text-muted">Source: <span id="marketDataSource">--</span></small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Crop Recommendations -->
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Crop Recommendations</h5>
+            </div>
+            <div class="card-body p-0">
+              <div id="cropRecommendations">
+                {% if recommendations %}
+                    {% for rec in recommendations %}
+                        <div class="crop-suggestion" data-yield-range="{{ rec.yield_range }}">
+                            <div class="crop-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="crop-details w-100">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h6 class="mb-1">{{ rec.crop }}</h6>
+                                    <span class="badge badge-success">{{ "%.1f"|format(rec.confidence) }}%</span>
+                                </div>
+                                <div class="small text-muted mb-2">Variety: {{ rec.variety }}</div>
+                                <div class="crop-compatibility">
+                                    <div class="progress" style="height: 6px;">
+                                        <div class="progress-bar bg-success" 
+                                             role="progressbar" 
+                                             data-value="{{ rec.confidence }}"
+                                             style="width: 0%"
+                                             aria-valuenow="{{ rec.confidence }}"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-seedling mb-3" style="font-size: 2rem; color: #6c757d;"></i>
+                        <p class="mb-0">No recommendations available</p>
+                        <small class="text-muted">Check back later for personalized crop suggestions</small>
+                    </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks & Zones -->
+      <div class="row mt-4">
+        <!-- Irrigation Tasks -->
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Irrigation Tasks</h5>
+              <button class="refresh-btn" onclick="refreshDashboardData()">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              {% if irrigation_tasks and irrigation_tasks.tasks %}
+                {% for task in irrigation_tasks.tasks %}
+                  <div class="task-item">
+                    <div>
+                      <h6 class="mb-1">{{ task.field }}</h6>
+                      <small class="text-muted">{{ task.date }} at {{ task.time }} ({{ task.duration }})</small>
+                    </div>
+                    <span class="task-priority priority-{{ task.priority }}">{{ task.priority|title }}</span>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div class="no-data">
+                  <i class="fas fa-tint mb-2"></i>
+                  <p>No irrigation tasks scheduled</p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Farm Tasks -->
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Farm Tasks</h5>
+              <button class="refresh-btn" onclick="refreshDashboardData()">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              {% if farm_tasks %}
+                {% for task in farm_tasks %}
+                  <div class="task-item">
+                    <div>
+                      <h6 class="mb-1">{{ task.title }}</h6>
+                      <small class="text-muted">{{ task.description }}</small><br>
+                      <small class="text-muted">Field: {{ task.field }} | Due: {{ task.due_date }}</small>
+                    </div>
+                    <div class="d-flex flex-column align-items-end">
+                      <span class="task-priority priority-{{ task.priority }}">{{ task.priority|title }}</span>
+                      <small class="text-{{ 'success' if task.status == 'completed' else 'warning' }} mt-1">
+                        {{ task.status|title }}
+                      </small>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div class="no-data">
+                  <i class="fas fa-tasks mb-2"></i>
+                  <p>No farm tasks scheduled</p>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Soil Zones -->
+        <div class="col-md-4">
+          <div class="dashboard-card">
+            <div class="card-header">
+              <h5 class="mb-0">Soil Zones</h5>
+              <button class="refresh-btn" onclick="refreshDashboardData()">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="soil-zones">
+                {% if soil_zones %}
+                  {% for zone, data in soil_zones.items() %}
+                    <div class="soil-indicator mb-3">
+                      <div class="d-flex justify-content-between align-items-center mb-1">
+                        <div>
+                          <span class="indicator-dot" data-status="{{ data.status }}"></span>
+                          <strong>Zone {{ zone }}</strong>
+                        </div>
+                        <span>{{ data.moisture }}% moisture</span>
+                      </div>
+                      <div class="progress">
+                        <div class="progress-bar"
+                             role="progressbar"
+                             data-status="{{ data.status }}"
+                             data-moisture="{{ data.moisture }}"
+                             aria-valuemin="0"
+                             aria-valuemax="100">
+                        </div>
+                      </div>
+                      <small class="text-muted d-block mt-1">Status: {{ data.status }}</small>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <div class="no-data">
+                    <p>No soil zone data available</p>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5><i class="fas fa-leaf mr-2"></i>CropMonitor</h5>
+          <p>Smart farming solutions for sustainable agriculture and improved crop yields.</p>
+          <div class="social-links">
+            <a href="#" class="text-white mr-3"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white mr-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white mr-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="/" class="text-white">Home</a></li>
+            <li><a href="/about" class="text-white">About Us</a></li>
+            <li><a href="/features" class="text-white">Features</a></li>
+            <li><a href="/pricing" class="text-white">Pricing</a></li>
+            <li><a href="/contact" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Resources</h5>
+          <ul class="list-unstyled">
+            <li><a href="/blog" class="text-white">Blog</a></li>
+            <li><a href="/tutorials" class="text-white">Tutorials</a></li>
+            <li><a href="/faq" class="text-white">FAQ</a></li>
+            <li><a href="/support" class="text-white">Support</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Us</h5>
+          <address class="text-white">
+            <p><i class="fas fa-map-marker-alt mr-2"></i> 123 Farming Road, Agritech Park</p>
+            <p><i class="fas fa-phone mr-2"></i> +91 1234567890</p>
+            <p><i class="fas fa-envelope mr-2"></i> info@cropmonitor.com</p>
+          </address>
+        </div>
+      </div>
+      <hr class="bg-white">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2025 CropMonitor. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-right">
+          <p class="mb-0"><a href="/privacy" class="text-white">Privacy Policy</a> | <a href="/terms" class="text-white">Terms of Service</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Error Toast -->
+  <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+    <div id="errorToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+      <div class="toast-header bg-danger text-white">
+        <strong class="mr-auto">Error</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body" id="errorToastBody">
+        Unable to fetch data. Please try again later.
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@0.1.1"></script>
+  <script nonce="{{ g.nonce }}">
+    // Global variables and functions
+    let soilMoistureChart = null;
+    let irrigationChart = null;
+    let marketPriceChart = null;
+    let npkChart = null;
+    let selectedField = 'all';
+    let soilTimeRange = 7;
+    let marketTimeRange = 30;
+    let npkTimeRange = 30;
+    let dataRefreshInterval = null;
+
+    // Fetch dashboard data from API
+    async function fetchDashboardData(queryParams = '') {
+      try {
+        const response = await fetch(`/api/dashboard-data${queryParams}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        
+        if (data.status === 'success' && data.data) {
+          console.log('Received dashboard data:', data.data);  // Debug log
+          
+          // Update charts with the new data
+          if (data.data.charts) {
+            updateSoilChart(data.data.charts.soil);
+            updateNPKChart(data.data.charts.npk);
+          }
+          
+          // Update market data
+          if (data.data.market_data) {
+            updateMarketChart(data.data.market_data);
+            updateMarketTable(data.data.market_data);
+          }
+
+          // Update irrigation data
+          if (data.data.irrigation_data) {
+            console.log('Irrigation data received:', data.data.irrigation_data);  // Debug log
+            updateIrrigationChart(data.data.irrigation_data);
+          } else {
+            console.warn('No irrigation data in response');  // Debug log
+          }
+          
+          // Update last updated timestamp
+          document.getElementById('lastUpdated').textContent = new Date().toLocaleTimeString();
+        } else {
+          throw new Error('Failed to fetch dashboard data');
+        }
+      } catch (error) {
+        console.error('Error fetching dashboard data:', error);
+        showError('Failed to fetch dashboard data. Please try again later.');
+      }
+    }
+
+    // Initialize charts
+    function initCharts() {
+      // Initialize soil moisture chart
+      const soilCtx = document.getElementById('soilMoistureChart').getContext('2d');
+      soilMoistureChart = new Chart(soilCtx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: 'Moisture (%)',
+              data: [],
+              borderColor: '#28a745',
+              backgroundColor: 'rgba(40, 167, 69, 0.1)',
+              borderWidth: 2,
+              fill: true,
+              yAxisID: 'moisture'
+            },
+            {
+              label: 'Temperature (°C)',
+              data: [],
+              borderColor: '#dc3545',
+              backgroundColor: 'rgba(220, 53, 69, 0.1)',
+              borderWidth: 2,
+              fill: true,
+              yAxisID: 'temperature'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            xAxes: [{
+              type: 'time',
+              time: {
+                unit: 'hour',
+                displayFormats: {
+                  hour: 'HH:mm',
+                  day: 'MMM D'
+                }
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Time'
+              }
+            }],
+            yAxes: [
+              {
+                id: 'moisture',
+                position: 'left',
+                ticks: {
+                  beginAtZero: true,
+                  max: 100
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Moisture (%)'
+                }
+              },
+              {
+                id: 'temperature',
+                position: 'right',
+                ticks: {
+                  beginAtZero: false
+                },
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Temperature (°C)'
+                }
+              }
+            ]
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false
+          }
+        }
+      });
+
+      // Initialize irrigation chart
+      const irrigationCtx = document.getElementById('irrigationChart').getContext('2d');
+      irrigationChart = new Chart(irrigationCtx, {
+        type: 'bar',
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: 'Irrigation (mm)',
+              data: [],
+              backgroundColor: 'rgba(23, 162, 184, 0.8)',
+              borderColor: '#17a2b8',
+              borderWidth: 1,
+              categoryPercentage: 0.8,
+              barPercentage: 0.9
+            },
+            {
+              label: 'Rainfall (mm)',
+              data: [],
+              backgroundColor: 'rgba(108, 117, 125, 0.8)',
+              borderColor: '#6c757d',
+              borderWidth: 1,
+              categoryPercentage: 0.8,
+              barPercentage: 0.9
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: {
+            duration: 1000
+          },
+          layout: {
+            padding: {
+              left: 10,
+              right: 10,
+              top: 20,
+              bottom: 10
+            }
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 7,
+                maxRotation: 45,
+                minRotation: 45
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                color: 'rgba(0, 0, 0, 0.1)'
+              },
+              ticks: {
+                beginAtZero: true,
+                callback: function(value) {
+                  return value + ' mm';
+                },
+                suggestedMax: 10  // Set a reasonable max value for better visualization
+              }
+            }]
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function(tooltipItem, data) {
+                return data.datasets[tooltipItem.datasetIndex].label + ': ' + tooltipItem.yLabel.toFixed(1) + ' mm';
+              }
+            }
+          },
+          legend: {
+            display: true,
+            position: 'top',
+            labels: {
+              boxWidth: 12,
+              padding: 10
+            }
+          }
+        }
+      });
+
+      // Initialize market price chart
+      const marketCtx = document.getElementById('marketPriceChart').getContext('2d');
+      marketPriceChart = new Chart(marketCtx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: []
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          title: {
+            display: true,
+            text: 'Crop Price Trends'
+          },
+          legend: {
+            position: 'top',
+            labels: {
+              boxWidth: 12,
+              padding: 10
+            }
+          },
+          scales: {
+            xAxes: [{
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 7,
+                maxRotation: 45,
+                minRotation: 45
+              }
+            }],
+            yAxes: [{
+              gridLines: {
+                color: 'rgba(0, 0, 0, 0.1)'
+              },
+              ticks: {
+                beginAtZero: false,
+                callback: function(value) {
+                  return '₹' + value;
+                }
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Price (₹/qt)',
+                padding: 10
+              }
+            }]
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false,
+            callbacks: {
+              label: function(tooltipItem, data) {
+                const value = tooltipItem.yLabel;
+                return data.datasets[tooltipItem.datasetIndex].label + ': ₹' + value.toLocaleString();
+              }
+            }
+          }
+        }
+      });
+
+      // Initialize N,P,K chart
+      const npkCtx = document.getElementById('npkChart').getContext('2d');
+      npkChart = new Chart(npkCtx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [
+            {
+              label: 'Nitrogen (N)',
+              data: [],
+              borderColor: '#28a745',
+              backgroundColor: 'rgba(40, 167, 69, 0.1)',
+              borderWidth: 2,
+              fill: true
+            },
+            {
+              label: 'Phosphorus (P)',
+              data: [],
+              borderColor: '#17a2b8',
+              backgroundColor: 'rgba(23, 162, 184, 0.1)',
+              borderWidth: 2,
+              fill: true
+            },
+            {
+              label: 'Potassium (K)',
+              data: [],
+              borderColor: '#ffc107',
+              backgroundColor: 'rgba(255, 193, 7, 0.1)',
+              borderWidth: 2,
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            xAxes: [{
+              type: 'time',
+              time: {
+                unit: 'hour',
+                displayFormats: {
+                  hour: 'HH:mm',
+                  day: 'MMM D'
+                }
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Time'
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                max: 150
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Concentration (ppm)'
+              }
+            }]
+          },
+          tooltips: {
+            mode: 'index',
+            intersect: false
+          }
+        }
+      });
+    }
+
+    // Update soil chart with proper data handling
+    function updateSoilChart(data) {
+      if (!data || !soilMoistureChart) return;
+
+      const loader = document.getElementById('soilChartLoader');
+      const noData = document.getElementById('soilNoData');
+
+      if (data.timestamps && data.timestamps.length > 0) {
+        loader.style.display = 'none';
+        noData.classList.add('d-none');
+        document.getElementById('soilMoistureChart').style.display = 'block';
+
+        // Convert timestamps to Date objects
+        const labels = data.timestamps.map(ts => new Date(ts));
+        
+        // Update chart data
+        soilMoistureChart.data.labels = labels;
+        soilMoistureChart.data.datasets[0].data = data.moisture.map((val, i) => ({
+          t: labels[i],
+          y: val
+        }));
+        soilMoistureChart.data.datasets[1].data = data.temperature.map((val, i) => ({
+          t: labels[i],
+          y: val
+        }));
+        
+        soilMoistureChart.update();
+      } else {
+        loader.style.display = 'none';
+        noData.classList.remove('d-none');
+        document.getElementById('soilMoistureChart').style.display = 'none';
+      }
+    }
+
+    // Update N,P,K chart with proper data handling
+    function updateNPKChart(data) {
+      if (!data || !npkChart) return;
+
+      const loader = document.getElementById('npkChartLoader');
+      const noData = document.getElementById('npkNoData');
+
+      if (data.timestamps && data.timestamps.length > 0) {
+        loader.style.display = 'none';
+        noData.classList.add('d-none');
+        document.getElementById('npkChart').style.display = 'block';
+
+        // Convert timestamps to Date objects
+        const labels = data.timestamps.map(ts => new Date(ts));
+        
+        // Update chart data
+        npkChart.data.labels = labels;
+        npkChart.data.datasets[0].data = data.nitrogen.map((val, i) => ({
+          t: labels[i],
+          y: val
+        }));
+        npkChart.data.datasets[1].data = data.phosphorus.map((val, i) => ({
+          t: labels[i],
+          y: val
+        }));
+        npkChart.data.datasets[2].data = data.potassium.map((val, i) => ({
+          t: labels[i],
+          y: val
+        }));
+        
+        npkChart.update();
+      } else {
+        loader.style.display = 'none';
+        noData.classList.remove('d-none');
+        document.getElementById('npkChart').style.display = 'none';
+      }
+    }
+
+    // Update irrigation chart
+    function updateIrrigationChart(data) {
+      if (!irrigationChart || !data) {
+        console.error('Invalid irrigation data:', data);
+        return;
+      }
+
+      const chartContainer = document.getElementById('irrigationChart');
+      const loader = document.getElementById('irrigationChartLoader');
+      const noData = document.getElementById('irrigationNoData');
+
+      try {
+        console.log('Processing irrigation data:', data);  // Debug log
+        const { dates, irrigation, rainfall } = data;
+
+        if (!dates || !irrigation || !rainfall || dates.length === 0) {
+          throw new Error('Missing required irrigation data');
+        }
+
+        // Format dates for display
+        const formattedDates = dates.map(date => {
+          const d = new Date(date);
+          return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        });
+
+        console.log('Formatted irrigation data:', {  // Debug log
+          dates: formattedDates,
+          irrigation: irrigation,
+          rainfall: rainfall
+        });
+
+        // Update chart data
+        irrigationChart.data.labels = formattedDates;
+        irrigationChart.data.datasets[0].data = irrigation;
+        irrigationChart.data.datasets[1].data = rainfall;
+
+        // Show chart and hide loader/no-data message
+        if (loader) loader.style.display = 'none';
+        if (noData) noData.classList.add('d-none');
+        if (chartContainer) chartContainer.style.display = 'block';
+
+        irrigationChart.update();
+      } catch (error) {
+        console.error('Error updating irrigation chart:', error);
+        if (loader) loader.style.display = 'none';
+        if (noData) noData.classList.remove('d-none');
+        if (chartContainer) chartContainer.style.display = 'none';
+      }
+    }
+
+    // Update market chart
+    function updateMarketChart(data) {
+      if (!marketPriceChart || !data || !data.chart) {
+        console.error('Invalid market data:', data);
+        return;
+      }
+
+      const chartContainer = document.getElementById('marketPriceChart');
+      const loader = document.getElementById('marketChartLoader');
+      const noData = document.getElementById('marketChartNoData');
+
+      try {
+        const { dates, prices } = data.chart;
+
+        if (!dates || !prices || dates.length === 0) {
+          throw new Error('Missing required market data');
+        }
+
+        // Format dates for display
+        const formattedDates = dates.map(date => {
+          const d = new Date(date);
+          return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        });
+
+        // Create datasets for each crop
+        const colors = {
+          'Wheat': '#28a745',
+          'Rice': '#17a2b8',
+          'Corn': '#ffc107'
+        };
+
+        const datasets = Object.entries(prices).map(([crop, values]) => ({
+          label: crop,
+          data: values,
+          borderColor: colors[crop] || '#6c757d',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.4
+        }));
+
+        // Update chart data
+        marketPriceChart.data.labels = formattedDates;
+        marketPriceChart.data.datasets = datasets;
+
+        // Show chart
+        if (loader) loader.style.display = 'none';
+        if (noData) noData.classList.add('d-none');
+        if (chartContainer) chartContainer.style.display = 'block';
+
+        marketPriceChart.update();
+        console.log('Market chart updated with data:', { dates: formattedDates, datasets });
+      } catch (error) {
+        console.error('Error updating market chart:', error);
+        if (loader) loader.style.display = 'none';
+        if (noData) noData.classList.remove('d-none');
+        if (chartContainer) chartContainer.style.display = 'none';
+      }
+    }
+
+    // Update market table
+    function updateMarketTable(data) {
+      if (!data || !data.current_prices) {
+        console.error('Invalid market table data:', data);
+        return;
+      }
+
+      const tbody = document.getElementById('marketPricesTable');
+      const noData = document.getElementById('marketTableNoData');
+
+      try {
+        tbody.innerHTML = '';
+        noData.classList.add('d-none');
+
+        data.current_prices.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td>${item.crop}</td>
+            <td>₹${item.price.toLocaleString()}</td>
+            <td>
+              <span class="text-${item.change >= 0 ? 'success' : 'danger'}">
+                ${item.change >= 0 ? '+' : ''}${item.change.toFixed(1)}%
+                <i class="fas fa-arrow-${item.change >= 0 ? 'up' : 'down'}"></i>
+              </span>
+            </td>
+          `;
+          tbody.appendChild(row);
+        });
+
+        console.log('Market table updated with data:', data.current_prices);
+      } catch (error) {
+        console.error('Error updating market table:', error);
+        tbody.innerHTML = '';
+        noData.classList.remove('d-none');
+      }
+    }
+
+    // Helper function to show error toast
+    function showError(message) {
+      const errorToast = document.getElementById('errorToast');
+      document.getElementById('errorToastBody').textContent = message;
+      $(errorToast).toast('show');
+    }
+
+    // Document ready handler
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize charts
+      initCharts();
+      
+      // Initial data fetch
+      fetchDashboardData();
+      
+      // Set up data refresh interval (every 5 minutes)
+      dataRefreshInterval = setInterval(fetchDashboardData, 300000);
+      
+      // Animate crop recommendation progress bars
+      document.querySelectorAll('.crop-suggestion .progress-bar').forEach(function(bar) {
+        const value = parseFloat(bar.getAttribute('data-value')) || 0;
+        setTimeout(() => {
+          bar.style.width = value + '%';
+        }, 100);
+      });
+
+      // Add yield range display
+      document.querySelectorAll('.crop-suggestion').forEach(function(suggestion) {
+        const details = suggestion.querySelector('.crop-details');
+        const yieldRange = suggestion.getAttribute('data-yield-range');
+        if (yieldRange) {
+          const yieldInfo = document.createElement('div');
+          yieldInfo.className = 'small text-muted mt-2';
+          yieldInfo.innerHTML = '<i class="fas fa-chart-line mr-1"></i>Expected Yield: ' + yieldRange;
+          details.appendChild(yieldInfo);
+        }
+      });
+
+      // Event listeners for time range selectors
+      document.querySelectorAll('.soil-range').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          const days = parseInt(this.getAttribute('data-days'));
+          document.getElementById('soilTimeRange').textContent = `Last ${days} Days`;
+          updateSoilChart(days);
+        });
+      });
+      
+      document.querySelectorAll('.npk-range').forEach(function(el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          npkTimeRange = parseInt(this.dataset.days);
+          document.getElementById('npkTimeRange').textContent = 
+            npkTimeRange === 7 ? 'Last 7 Days' : 
+            npkTimeRange === 30 ? 'Last 30 Days' : 'Last 90 Days';
+          fetchDashboardData(`?npk_days=${npkTimeRange}`);
+        });
+      });
+    });
+
+    // Clean up on page unload
+    window.addEventListener('unload', function() {
+      if (dataRefreshInterval) {
+        clearInterval(dataRefreshInterval);
+      }
+    });
+
+    // Google Translate initialization
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,mr,bn',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+
+    // Setup event listeners
+    function setupEventListeners() {
+      // Field selector change event
+      document.getElementById('field-select').addEventListener('change', function() {
+        selectedField = this.value;
+        fetchDashboardData();
+      });
+      
+      // Manual refresh button
+      document.getElementById('refreshDashboard').addEventListener('click', fetchDashboardData);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize progress bars
+      document.querySelectorAll('.progress-bar[data-moisture]').forEach(function(bar) {
+        const moisture = bar.getAttribute('data-moisture');
+        bar.style.width = moisture + '%';
+        bar.setAttribute('aria-valuenow', moisture);
+      });
+      
+      // Initialize indicator dots
+      document.querySelectorAll('.indicator-dot[data-status]').forEach(function(dot) {
+        const status = dot.getAttribute('data-status');
+        dot.classList.add('bg-' + (status === 'Optimal' ? 'success' : status === 'Good' ? 'warning' : 'danger'));
+      });
+    });
+
+    function refreshDashboardData() {
+      fetch('/api/dashboard-data')
+        .then(response => response.json())
+        .then(data => {
+          // Update the dashboard sections with new data
+          location.reload(); // For now, just reload the page
+        })
+        .catch(error => {
+          console.error('Error fetching dashboard data:', error);
+          alert('Failed to fetch dashboard data. Please try again later.');
+        });
+    }
+
+    // Refresh dashboard data every 5 minutes
+    setInterval(refreshDashboardData, 5 * 60 * 1000);
+  </script>
+</body>
+</html>

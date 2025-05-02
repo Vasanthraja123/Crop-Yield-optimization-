@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropMonitor - Settings</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style nonce="{{ nonce }}">
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background-color: #f8f9fa; 
+      background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('/static/images/farm-background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .navbar { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .navbar-brand { font-weight: bold; color: #2e7d32 !important; }
+    .navbar-brand img { height: 30px; margin-right: 8px; }
+    .section { padding: 60px 0; }
+    .card { border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 25px; }
+    .card-header { background-color: #2e7d32; color: white; border-radius: 10px 10px 0 0 !important; }
+    .btn-primary { background-color: #2e7d32; border-color: #2e7d32; }
+    .btn-primary:hover { background-color: #1b5e20; border-color: #1b5e20; }
+    .footer { background-color: #343a40; color: #fff; padding: 20px 0; text-align: center; }
+    #google_translate_element { margin-right: 15px; }
+    .settings-icon { font-size: 2rem; color: #2e7d32; margin-bottom: 15px; }
+    .custom-switch .custom-control-label::before { height: 1.5rem; width: 2.75rem; }
+    .custom-switch .custom-control-label::after { height: calc(1.5rem - 4px); width: calc(1.5rem - 4px); }
+    .custom-control-input:checked ~ .custom-control-label::before { background-color: #2e7d32; border-color: #2e7d32; }
+  </style>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,ml,kn,gu,pa,ur',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar with session-based logic -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/static/images/logo.png" alt="CropMonitor Logo"> CropMonitor
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="google_translate_element"></div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          {% if session['username'] %}
+          <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/alerts">Alerts</a></li>
+          <li class="nav-item active"><a class="nav-link" href="/settings">Settings</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          <li class="nav-item"><a class="nav-link" href="/signup">Signup</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Settings Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center mb-5">User Settings & Profile</h2>
+      
+      <!-- Flash messages -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      
+      <div class="row">
+        <!-- Profile Information -->
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Profile Information</h4>
+            </div>
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <div class="settings-icon">
+                  <i class="fas fa-user-circle"></i>
+                </div>
+                <h5>{{ session['username'] }}</h5>
+              </div>
+              <form action="/update-profile" method="POST">
+                <div class="form-group">
+                  <label for="fullname">Full Name</label>
+                  <input type="text" class="form-control" id="fullname" name="fullname" value="">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" id="email" name="email" value="">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" value="">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Notification Settings -->
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Notification Settings</h4>
+            </div>
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <div class="settings-icon">
+                  <i class="fas fa-bell"></i>
+                </div>
+              </div>
+              <form action="/update-notifications" method="POST">
+                <div class="custom-control custom-switch mb-3">
+                  <input type="checkbox" class="custom-control-input" id="emailNotifications" name="emailNotifications" checked>
+                  <label class="custom-control-label" for="emailNotifications">Email Notifications</label>
+                </div>
+                <div class="custom-control custom-switch mb-3">
+                  <input type="checkbox" class="custom-control-input" id="smsNotifications" name="smsNotifications">
+                  <label class="custom-control-label" for="smsNotifications">SMS Notifications</label>
+                </div>
+                <div class="form-group">
+                  <label>Alert Types</label>
+                  <div class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input" id="moistureAlerts" name="alertTypes[]" value="moisture" checked>
+                    <label class="custom-control-label" for="moistureAlerts">Soil Moisture Alerts</label>
+                  </div>
+                  <div class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input" id="temperatureAlerts" name="alertTypes[]" value="temperature" checked>
+                    <label class="custom-control-label" for="temperatureAlerts">Temperature Alerts</label>
+                  </div>
+                  <div class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input" id="pestAlerts" name="alertTypes[]" value="pest" checked>
+                    <label class="custom-control-label" for="pestAlerts">Pest Detection Alerts</label>
+                  </div>
+                  <div class="custom-control custom-checkbox mb-2">
+                    <input type="checkbox" class="custom-control-input" id="weatherAlerts" name="alertTypes[]" value="weather" checked>
+                    <label class="custom-control-label" for="weatherAlerts">Weather Alerts</label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Save Notification Settings</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sensor Management -->
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Sensor Management</h4>
+            </div>
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <div class="settings-icon">
+                  <i class="fas fa-microchip"></i>
+                </div>
+              </div>
+              <div class="list-group mb-4">
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                  Soil Moisture Sensor #1
+                  <span class="badge badge-success badge-pill">Active</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                  Temperature Sensor #1
+                  <span class="badge badge-success badge-pill">Active</span>
+                </div>
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                  Humidity Sensor #1
+                  <span class="badge badge-danger badge-pill">Offline</span>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addSensorModal">
+                <i class="fas fa-plus mr-2"></i> Add New Sensor
+              </button>
+              <button type="button" class="btn btn-outline-primary btn-block mt-2">
+                <i class="fas fa-sync-alt mr-2"></i> Refresh Sensor Status
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Password Change -->
+      <div class="row mt-4">
+        <div class="col-lg-6 mx-auto">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Change Password</h4>
+            </div>
+            <div class="card-body">
+              <form action="/change-password" method="POST">
+                <div class="form-group">
+                  <label for="currentPassword">Current Password</label>
+                  <input type="password" class="form-control" id="currentPassword" name="currentPassword" required>
+                </div>
+                <div class="form-group">
+                  <label for="newPassword">New Password</label>
+                  <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm New Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Change Password</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Sensor Modal -->
+  <div class="modal fade" id="addSensorModal" tabindex="-1" role="dialog" aria-labelledby="addSensorModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addSensorModalLabel">Add New Sensor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="addSensorForm">
+            <div class="form-group">
+              <label for="sensorName">Sensor Name</label>
+              <input type="text" class="form-control" id="sensorName" required>
+            </div>
+            <div class="form-group">
+              <label for="sensorType">Sensor Type</label>
+              <select class="form-control" id="sensorType" required>
+                <option value="">Select Sensor Type</option>
+                <option value="moisture">Soil Moisture</option>
+                <option value="temperature">Temperature</option>
+                <option value="humidity">Humidity</option>
+                <option value="ph">Soil pH</option>
+                <option value="light">Light</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sensorID">Sensor ID/Serial Number</label>
+              <input type="text" class="form-control" id="sensorID" required>
+            </div>
+            <div class="form-group">
+              <label for="location">Location/Field</label>
+              <input type="text" class="form-control" id="location" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="saveSensor">Add Sensor</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h5>CropMonitor</h5>
+          <p>Smart farming solutions for modern agriculture</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="/" class="text-white">Home</a></li>
+            <li><a href="/about" class="text-white">About Us</a></li>
+            <li><a href="/contact" class="text-white">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Contact Us</h5>
+          <p>Email: support@cropmonitor.com<br>Phone: +1 (555) 123-4567</p>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <p>&copy; 2025 CropMonitor. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    // Add Sensor functionality
+    document.getElementById('saveSensor').addEventListener('click', function() {
+      const form = document.getElementById('addSensorForm');
+      if (form.checkValidity()) {
+        // Here you would normally send data to the server
+        alert('Sensor added successfully!');
+        $('#addSensorModal').modal('hide');
+      } else {
+        form.reportValidity();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropMonitor - Signup</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style nonce="{{ nonce }}">
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif; 
+      background-color: #f8f9fa; 
+      background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('/static/images/farm-background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .navbar { box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .navbar-brand { font-weight: bold; color: #2e7d32 !important; }
+    .navbar-brand img { height: 30px; margin-right: 8px; }
+    .section { padding: 60px 0; }
+    .card { border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .card-header { background-color: #2e7d32; color: white; border-radius: 10px 10px 0 0 !important; }
+    .btn-primary { background-color: #2e7d32; border-color: #2e7d32; }
+    .btn-primary:hover { background-color: #1b5e20; border-color: #1b5e20; }
+    .footer { background-color: #343a40; color: #fff; padding: 20px 0; text-align: center; }
+    #google_translate_element { margin-right: 15px; }
+    .signup-form { max-width: 550px; margin: 0 auto; }
+    .form-control:focus { border-color: #2e7d32; box-shadow: 0 0 0 0.2rem rgba(46, 125, 50, 0.25); }
+    .password-strength { height: 5px; border-radius: 5px; margin-top: 5px; transition: all 0.3s ease; }
+    .password-feedback { font-size: 0.8rem; margin-top: 5px; }
+    .benefits-list { margin-top: 20px; }
+    .benefits-list i { color: #2e7d32; margin-right: 10px; }
+  </style>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,ml,kn,gu,pa,ur',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="/static/images/logo.png" alt="CropMonitor Logo"> CropMonitor
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="google_translate_element"></div>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          {% if session['username'] %}
+          <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/alerts">Alerts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/settings">Settings</a></li>
+          <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+          <li class="nav-item active"><a class="nav-link" href="/signup">Signup</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Main Content -->
+  <main class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <div class="card signup-form">
+            <div class="card-header text-center py-3">
+              <h3 class="mb-0">Create Your CropMonitor Account</h3>
+            </div>
+            <div class="card-body p-4">
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  {% endfor %}
+                {% endif %}
+              {% endwith %}
+              
+              <form method="POST" action="/signup" id="signupForm">
+                <div class="form-group">
+                  <label for="fullname">Full Name</label>
+                  <input type="text" class="form-control" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" name="phone" placeholder="Optional">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control" id="password" name="password" required>
+                  <div class="password-strength" id="passwordStrength"></div>
+                  <div class="password-feedback text-muted" id="passwordFeedback">Password should be at least 8 characters with letters and numbers</div>
+                </div>
+                <div class="form-group">
+                  <label for="confirm_password">Confirm Password</label>
+                  <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+                </div>
+                <div class="form-group">
+                  <label for="region">Farming Region</label>
+                  <select class="form-control" id="region" name="region">
+                    <option value="">-- Select Region --</option>
+                    <option value="North">North India</option>
+                    <option value="South">South India</option>
+                    <option value="East">East India</option>
+                    <option value="West">West India</option>
+                    <option value="Central">Central India</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="terms" required>
+                  <label class="form-check-label" for="terms">I agree to the <a href="#">Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Create Account</button>
+              </form>
+              
+              <div class="text-center mt-4">
+                <p>Already have an account? <a href="/login">Login here</a></p>
+              </div>
+              
+              <hr>
+              
+              <div class="benefits-list">
+                <h5>Why join CropMonitor?</h5>
+                <p><i class="fas fa-check-circle"></i> Real-time weather and soil moisture alerts</p>
+                <p><i class="fas fa-check-circle"></i> Personalized crop management recommendations</p>
+                <p><i class="fas fa-check-circle"></i> Access to disease prediction tools</p>
+                <p><i class="fas fa-check-circle"></i> Connect with agricultural experts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="footer mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>© 2025 CropMonitor. All rights reserved.</p>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex justify-content-md-end">
+            <a href="#" class="text-white mx-2"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-white mx-2"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+  <script>
+    // Password strength checker
+document.getElementById('password').addEventListener('input', function() {
+  const password = this.value;
+  const strength = document.getElementById('passwordStrength');
+  const feedback = document.getElementById('passwordFeedback');
+  
+  // Clear previous styles
+  strength.style.width = '0%';
+  strength.style.backgroundColor = '';
+  
+  if (password.length === 0) {
+    feedback.textContent = 'Password should be at least 8 characters with letters and numbers';
+    return;
+  }
+  
+  let strengthValue = 0;
+  
+  // Check length
+  if (password.length >= 8) strengthValue += 25;
+  
+  // Check for numbers
+  if (/\d/.test(password)) strengthValue += 25;
+  
+  // Check for lowercase letters
+  if (/[a-z]/.test(password)) strengthValue += 25;
+  
+  // Check for uppercase letters
+  if (/[A-Z]/.test(password)) strengthValue += 25;
+  
+  // Update strength bar
+  strength.style.width = strengthValue + '%';
+  
+  // Update color and feedback
+  if (strengthValue <= 25) {
+    strength.style.backgroundColor = '#dc3545';
+    feedback.textContent = 'Very weak password';
+  } else if (strengthValue <= 50) {
+    strength.style.backgroundColor = '#ffc107';
+    feedback.textContent = 'Weak password - add numbers and capital letters';
+  } else if (strengthValue <= 75) {
+    strength.style.backgroundColor = '#17a2b8';
+    feedback.textContent = 'Good password - consider adding special characters';
+  } else {
+    strength.style.backgroundColor = '#28a745';
+    feedback.textContent = 'Strong password!';
+  }
+});
+
+// Confirm password validation
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  const password = document.getElementById('password').value;
+  const confirmPassword = document.getElementById('confirm_password').value;
+  
+  if (password !== confirmPassword) {
+    e.preventDefault();
+    alert('Passwords do not match!');
+  }
+});
+  </script>
+</body>
+</html>

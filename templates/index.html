@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropMonitor – Smart Farming Solutions</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script nonce="{{ g.nonce }}">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,ta,te,ml,kn,gu,pa,ur',
+        layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+      }, 'google_translate_element');
+    }
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/"><i class="fas fa-leaf mr-2 text-success"></i>CropMonitor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarNav" aria-controls="navbarNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a class="nav-link" href="/"><i class="fas fa-home mr-1"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard"><i class="fas fa-chart-line mr-1"></i> Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/alerts"><i class="fas fa-bell mr-1"></i> Alerts</a></li>
+          <li class="nav-item"><a class="nav-link" href="/settings"><i class="fas fa-cog mr-1"></i> Settings</a></li>
+          <li class="nav-item">
+            <div id="google_translate_element" class="nav-link p-0"></div>
+          </li>
+          {% if session['username'] %}
+            <li class="nav-item"><a class="nav-link btn btn-outline-success ml-2" href="/logout"><i class="fas fa-sign-out-alt mr-1"></i> Logout</a></li>
+          {% else %}
+            <li class="nav-item"><a class="nav-link btn btn-outline-success ml-2" href="/login"><i class="fas fa-sign-in-alt mr-1"></i> Login</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-success text-white ml-2" href="/signup"><i class="fas fa-user-plus mr-1"></i> Signup</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+   <!-- Hero Section -->
+   <section class="hero d-flex align-items-center">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 hero-text text-left">
+          <h1 class="display-4 font-weight-bold mb-4">Smart Farming for Better Yield</h1>
+          <p class="lead mb-4">Real-time crop monitoring, intelligent recommendations, and actionable insights to revolutionize your farming practices and maximize productivity.</p>
+          <div class="mt-5">
+            <a href="/dashboard" class="btn btn-success btn-lg btn-cta mr-3"><i class="fas fa-seedling mr-2"></i>Get Started</a>
+            <a href="#features" class="btn btn-outline-light btn-lg btn-cta"><i class="fas fa-info-circle mr-2"></i>Learn More</a>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="hero-image-container">
+            <!-- Placeholder for hero image -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Counter -->
+  <section class="counter-section bg-white py-4">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-3 col-6 mb-3 mb-md-0">
+          <div class="counter">
+            <div class="counter-value">5000+</div>
+            <div class="counter-label">Farmers</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3 mb-md-0">
+          <div class="counter">
+            <div class="counter-value">12000+</div>
+            <div class="counter-label">Hectares Monitored</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="counter">
+            <div class="counter-value">30%</div>
+            <div class="counter-label">Yield Increase</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="counter">
+            <div class="counter-value">25%</div>
+            <div class="counter-label">Water Saved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="section bg-light">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-subtitle text-success">Our Capabilities</span>
+        <h2 class="section-title">Smart Features for Modern Farmers</h2>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4 h-100">
+            <div class="feature-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>AI-Powered Crop Recommendations</h3>
+            <p class="text-muted">Get personalized crop suggestions based on soil composition, climate data, and market trends to maximize your yield and profits.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4 h-100">
+            <div class="feature-icon">
+              <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h3>Interactive Field Visualization</h3>
+            <p class="text-muted">Monitor crop health with color-coded maps showing soil moisture, nutrient levels, and growth stages in real-time across all your fields.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4 h-100">
+            <div class="feature-icon">
+              <i class="fas fa-bell"></i>
+            </div>
+            <h3>Intelligent Alerts System</h3>
+            <p class="text-muted">Receive timely notifications for irrigation needs, pest risks, optimal fertilization timing, and weather warnings tailored to your crops.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4 h-100">
+            <div class="feature-icon">
+              <i class="fas fa-cloud-sun-rain"></i>
+            </div>
+            <h3>Weather Integration</h3>
+            <p class="text-muted">Access 10-day weather forecasts combined with historical patterns to make informed decisions about planting and harvesting times.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4 h-100">
+            <div class="feature-icon">
+              <i class="fas fa-water"></i>
+            </div>
+            <h3>Water Management</h3>
+            <p class="text-muted">Optimize irrigation scheduling with soil moisture sensors and evapotranspiration calculations to save water and reduce costs.</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="feature-card bg-white p-4 h-100">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Yield Predictions</h3>
+            <p class="text-muted">Access data-driven yield forecasts and track performance trends to help with planning and maximizing your farm's profitability.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-subtitle text-success">Simple Process</span>
+        <h2 class="section-title">How CropMonitor Works</h2>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="process-image text-center">
+            <img src="https://png.pngtree.com/background/20210716/original/pngtree-crop-green-rice-light-effect-wallpaper-picture-image_1334589.jpg" alt="CropMonitor Dashboard" class="img-fluid rounded shadow">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="process-steps">
+            <div class="process-step d-flex mb-4">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Install Sensors</h4>
+                <p>Place our smart sensors across your fields to collect real-time data on soil conditions, moisture levels, and environmental factors.</p>
+              </div>
+            </div>
+            <div class="process-step d-flex mb-4">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Connect to Platform</h4>
+                <p>Link sensors to our cloud platform which analyzes the data using advanced AI algorithms to generate insights.</p>
+              </div>
+            </div>
+            <div class="process-step d-flex mb-4">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Receive Recommendations</h4>
+                <p>Get customized recommendations for crop selection, irrigation scheduling, fertilizer application, and pest control.</p>
+              </div>
+            </div>
+            <div class="process-step d-flex">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Implement & Improve</h4>
+                <p>Apply recommendations, track results, and watch as your farm's efficiency and productivity increase season after season.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonial Section -->
+  <section class="testimonial">
+    <div class="container">
+      <div class="section-header text-center mb-5">
+        <span class="section-subtitle text-success">Success Stories</span>
+        <h2 class="section-title">What Farmers Say About Us</h2>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card h-100">
+            <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+            <p class="testimonial-text">"CropMonitor has transformed my farming practices. The soil moisture alerts alone have saved me thousands in irrigation costs."</p>
+            <div class="testimonial-author d-flex align-items-center mt-4">
+              <div class="author-avatar mr-3">
+                <img src="/api/placeholder/50/50" alt="Rajesh Patel" class="rounded-circle">
+              </div>
+              <div class="author-info">
+                <p class="author-name mb-0">Rajesh Patel</p>
+                <small class="text-muted">Wheat Farmer, Punjab</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card h-100">
+            <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+            <p class="testimonial-text">"The crop recommendations are spot-on! I've diversified my crops based on the suggestions and seen a 30% increase in profit."</p>
+            <div class="testimonial-author d-flex align-items-center mt-4">
+              <div class="author-avatar mr-3">
+                <img src="/api/placeholder/50/50" alt="Lakshmi Naidu" class="rounded-circle">
+              </div>
+              <div class="author-info">
+                <p class="author-name mb-0">Lakshmi Naidu</p>
+                <small class="text-muted">Mixed Crop Farmer, Andhra Pradesh</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="testimonial-card h-100">
+            <div class="testimonial-quote"><i class="fas fa-quote-left"></i></div>
+            <p class="testimonial-text">"As a new farmer, the guidance from CropMonitor has been invaluable. The interface is simple yet powerful."</p>
+            <div class="testimonial-author d-flex align-items-center mt-4">
+              <div class="author-avatar mr-3">
+                <img src="/api/placeholder/50/50" alt="Ananya Sharma" class="rounded-circle">
+              </div>
+              <div class="author-info">
+                <p class="author-name mb-0">Ananya Sharma</p>
+                <small class="text-muted">Organic Farmer, Karnataka</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-container text-center">
+        <h2 class="mb-4">Ready to Transform Your Farming?</h2>
+        <p class="lead mb-4">Join thousands of farmers who are already making data-driven decisions.</p>
+        <div class="cta-buttons">
+          <a href="/signup" class="btn btn-success btn-lg btn-cta">Start Free Trial</a>
+          <a href="#" class="btn btn-outline-success btn-lg btn-cta ml-3">Schedule Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="footer-brand mb-4">
+            <h4><i class="fas fa-leaf mr-2"></i>CropMonitor</h4>
+          </div>
+          <p>Empowering farmers with technology to enhance productivity and sustainability in agriculture.</p>
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h5 class="footer-heading">Pages</h5>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/alerts">Alerts</a></li>
+            <li><a href="/settings">Settings</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="footer-heading">Resources</h5>
+          <ul class="footer-links">
+            <li><a href="#">API Documentation</a></li>
+            <li><a href="#">Knowledge Base</a></li>
+            <li><a href="#">Sensor Setup Guide</a></li>
+            <li><a href="#">Community Forum</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 class="footer-heading">Contact Us</h5>
+          <ul class="footer-contact">
+            <li><i class="fas fa-envelope mr-2"></i>support@cropmonitor.com</li>
+            <li><i class="fas fa-phone mr-2"></i>+91 1800-123-4567</li>
+            <li><i class="fas fa-map-marker-alt mr-2"></i>Agri-Tech Park, Bangalore</li>
+          </ul>
+          <div class="footer-newsletter mt-4">
+            <h6>Subscribe to Newsletter</h6>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your Email">
+              <div class="input-group-append">
+                <button class="btn btn-success" type="button">Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p class="mb-md-0">&copy; 2025 CropMonitor. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-md-right">
+            <div class="footer-legal">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookies Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Rest of the index.html content remains unchanged -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</body>
+</html>
